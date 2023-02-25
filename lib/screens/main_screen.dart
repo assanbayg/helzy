@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import '../widgets/logo_title.dart';
+import './login_screen.dart';
+import './sign_up_screen.dart';
 
 class MainScreen extends StatelessWidget {
+  static const routeName = '/';
   const MainScreen({super.key});
 
   @override
@@ -25,11 +27,15 @@ class MainScreen extends StatelessWidget {
               Placeholder(),
               const SizedBox(height: 15),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(LoginScreen.routeName);
+                },
                 child: const Text('Start'),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(SignUpScreen.routeName);
+                },
                 child: Text(
                   'I already have an account',
                   style: theme.textTheme.bodyMedium,

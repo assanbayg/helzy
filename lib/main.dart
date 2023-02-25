@@ -18,6 +18,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: basisTheme(),
       home: MainScreen(),
+      initialRoute: '/',
+      routes: {
+            LoginScreen.routeName: (context) => const LoginScreen(),
+            SignUpScreen.routeName: (context) => const SignUpScreen(),
+          },
     );
   }
 }
