@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './navigation_bar.dart';
 import '../widgets/logo_title.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -7,6 +8,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    bool val = false;
     return SafeArea(
       child: Scaffold(
         body: Column(children: [
@@ -24,9 +26,9 @@ class SignUpScreen extends StatelessWidget {
               const LogoTitle(),
             ],
           ),
-          const SizedBox(height: 100),
+          const SizedBox(height: 80),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -59,13 +61,29 @@ class SignUpScreen extends StatelessWidget {
                   color: Colors.white,
                   child: const TextField(),
                 ),
+                const SizedBox(height: 20),
+                const Text(
+                  'We promise to keep your data safe, secure and confidential. Please read our politics before creating an account',
+                  style: TextStyle(
+                    color: Colors.black54,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Switch(value: val, onChanged: ((value) {})),
+                    const Text('I agree'),
+                  ],
+                ),
               ],
             ),
           ),
-          const SizedBox(height: 50),
           ElevatedButton(
-            onPressed: () {},
-            child: const Text('Sign in'),
+            onPressed: () {
+              Navigator.of(context).pushNamed(NavigationBarScreen.routeName);
+            },
+            child: const Text('Create an account'),
           ),
         ]),
       ),

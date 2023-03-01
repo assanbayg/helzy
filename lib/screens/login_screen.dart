@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:helzy/widgets/logo_title.dart';
+
+import './navigation_bar.dart';
+import '../widgets/logo_title.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/login';
@@ -49,7 +51,9 @@ class LoginScreen extends StatelessWidget {
           ),
           const SizedBox(height: 50),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(NavigationBarScreen.routeName);
+            },
             child: const Text('Sign in'),
           ),
         ]),

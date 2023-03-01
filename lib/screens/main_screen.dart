@@ -15,7 +15,7 @@ class MainScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(children: [
-              Icon(
+              const Icon(
                 Icons.logo_dev,
                 size: 200,
               ),
@@ -24,17 +24,20 @@ class MainScreen extends StatelessWidget {
                 'Stay Helzy with us!',
                 style: theme.textTheme.headlineSmall,
               ),
-              Placeholder(),
+              const Icon(
+                Icons.image,
+                size: 300,
+              ),
               const SizedBox(height: 15),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(LoginScreen.routeName);
+                  Navigator.of(context).pushNamed(SignUpScreen.routeName);
                 },
                 child: const Text('Start'),
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(SignUpScreen.routeName);
+                  Navigator.of(context).pushNamed(LoginScreen.routeName);
                 },
                 child: Text(
                   'I already have an account',
