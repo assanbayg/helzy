@@ -24,8 +24,10 @@ class PlansCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(9),
         child: Column(children: [
-          Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
-          Text(description)
+          Text(title,
+              style: const TextStyle(
+                  fontWeight: FontWeight.w700, color: Colors.blueGrey)),
+          Text(description, style: const TextStyle(color: Colors.blueGrey))
         ]),
       ),
     );

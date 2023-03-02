@@ -9,19 +9,19 @@ const String fontNameTitle = '';
 
 ThemeData basisTheme() => ThemeData(
       brightness: Brightness.light,
-      primaryColor: Colors.teal,
-      scaffoldBackgroundColor: Colors.lightGreen.shade50,
+      primaryColor: Colors.pink.shade400,
+      scaffoldBackgroundColor: Colors.blue.shade400,
       fontFamily: fontNameDefault,
       textTheme: const TextTheme(
-        bodyMedium: TextStyle(color: Colors.teal, fontSize: 16),
+        bodyMedium: TextStyle(color: Colors.white, fontSize: 16),
         headlineSmall:
-            TextStyle(color: Colors.teal, fontWeight: FontWeight.w700),
+            TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
         headlineLarge:
-            TextStyle(color: Colors.teal, fontWeight: FontWeight.w700),
+            TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.teal.shade500,
+          backgroundColor: Colors.pink,
           foregroundColor: Colors.white,
           fixedSize: const Size(250, 50),
           shape: RoundedRectangleBorder(
@@ -32,7 +32,7 @@ ThemeData basisTheme() => ThemeData(
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: Colors.teal,
+          foregroundColor: Colors.white,
           textStyle: const TextStyle(
               fontSize: 15, decoration: TextDecoration.underline),
         ),

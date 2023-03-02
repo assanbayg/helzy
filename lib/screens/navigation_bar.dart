@@ -27,7 +27,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
           backgroundColor: theme.primaryColor,
-          indicatorColor: theme.scaffoldBackgroundColor,
+          indicatorColor: Colors.pink.shade700,
           labelTextStyle: MaterialStateProperty.all(
             const TextStyle(
               color: Colors.black,
@@ -43,11 +43,17 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
               setState(() => selectedIndex = index),
           destinations: const [
             NavigationDestination(
-              icon: Icon(Icons.pageview_sharp),
+              icon: Icon(
+                Icons.pageview_sharp,
+                color: Colors.white,
+              ),
               label: 'Plans',
             ),
             NavigationDestination(
-              icon: Icon(Icons.science),
+              icon: Icon(
+                Icons.science,
+                color: Colors.white,
+              ),
               label: 'Analyses',
             ),
           ],
