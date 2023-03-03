@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './plans_screen.dart';
+import './analyse_screen.dart';
 
 class NavigationBarScreen extends StatefulWidget {
   static const routeName = '/nav-bar';
@@ -14,9 +15,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   var selectedIndex = 0;
   static const List<Widget> screens = [
     PlansScreen(),
-    Center(
-      child: Text('Does it work?'),
-    ),
+    AnalysesScreen(),
   ];
 
   @override

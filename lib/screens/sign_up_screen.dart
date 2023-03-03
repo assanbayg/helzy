@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import './navigation_bar.dart';
 import '../widgets/logo_title.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   static const routeName = '/sign up';
   const SignUpScreen({super.key});
+
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -27,7 +33,6 @@ class SignUpScreen extends StatelessWidget {
                 const LogoTitle(),
               ],
             ),
-            const SizedBox(height: 80),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -37,29 +42,37 @@ class SignUpScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   const Text('Name'),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    color: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
                     child: const TextField(),
                   ),
                   const SizedBox(height: 10),
                   const Text('Surname'),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    color: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
                     child: const TextField(),
                   ),
                   const SizedBox(height: 10),
                   const Text('E-mail'),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    color: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
                     child: const TextField(),
                   ),
                   const SizedBox(height: 10),
                   const Text('Password'),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    color: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
                     child: const TextField(),
                   ),
                   const SizedBox(height: 20),
@@ -73,7 +86,12 @@ class SignUpScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Switch(value: val, onChanged: ((value) {})),
+                      Switch(
+                        value: val,
+                        onChanged: ((value) {
+                          val != value;
+                        }),
+                      ),
                       const Text('I agree'),
                     ],
                   ),

@@ -17,16 +17,15 @@ class _PlansScreenState extends State<PlansScreen> {
     ThemeData theme = Theme.of(context);
     return SafeArea(
       child: Scaffold(
-        appBar: MyAppBar(theme: theme),
+        appBar: MyAppBar(
+          theme: theme,
+          title: 'My Plans',
+        ),
         body: Padding(
           padding: const EdgeInsets.only(left: 12, top: 15),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text(
-                  'My Plans',
-                  style: theme.textTheme.headlineSmall,
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
