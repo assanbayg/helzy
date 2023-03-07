@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/screens/meditation.dart';
 
 import './plans_screen.dart';
 import './analyse_screen.dart';
+import './nutrition.dart';
 
 class NavigationBarScreen extends StatefulWidget {
   static const routeName = '/nav-bar';
@@ -16,6 +18,8 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   static const List<Widget> screens = [
     PlansScreen(),
     AnalysesScreen(),
+    Meditation(),
+    Nutrition(),
   ];
 
   @override
@@ -54,6 +58,20 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
                 color: Colors.white,
               ),
               label: 'Analyses',
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.self_improvement_rounded,
+                color: Colors.white,
+              ),
+              label: 'Meditation',
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.restaurant,
+                color: Colors.white,
+              ),
+              label: 'Nutrition',
             ),
           ],
         ),

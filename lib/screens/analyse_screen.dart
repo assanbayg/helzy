@@ -33,7 +33,7 @@ class AnalysesScreen extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 25),
+          const SizedBox(height: 50),
           Icon(
             Icons.picture_as_pdf,
             color: Colors.pink.shade50,

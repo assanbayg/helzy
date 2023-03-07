@@ -7,6 +7,8 @@ import './screens/login_screen.dart';
 import './screens/sign_up_screen.dart';
 import './screens/plans_screen.dart';
 import './screens/analyse_screen.dart';
+import './screens/meditation.dart';
+import './screens/nutrition.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +31,8 @@ class MyApp extends StatelessWidget {
         SignUpScreen.routeName: (context) => const SignUpScreen(),
         PlansScreen.routeName: (context) => const PlansScreen(),
         AnalysesScreen.routeName: (context) => const AnalysesScreen(),
+        Meditation.routeName: (context) => const Meditation(),
+        Nutrition.routeName: (context) => const Nutrition(),
       },
     );
   }

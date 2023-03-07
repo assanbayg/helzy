@@ -14,10 +14,18 @@ ThemeData basisTheme() => ThemeData(
       fontFamily: fontNameDefault,
       textTheme: const TextTheme(
         bodyMedium: TextStyle(color: Colors.white, fontSize: 16),
-        headlineSmall:
-            TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
-        headlineLarge:
-            TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+        headlineSmall: TextStyle(
+            color: Colors.white,
+            fontFamily: fontNameDefault,
+            fontWeight: FontWeight.w700),
+        headlineMedium: TextStyle(
+            color: Colors.white,
+            fontFamily: fontNameDefault,
+            fontWeight: FontWeight.w700),
+        headlineLarge: TextStyle(
+            color: Colors.white,
+            fontFamily: fontNameDefault,
+            fontWeight: FontWeight.w700),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -27,14 +35,16 @@ ThemeData basisTheme() => ThemeData(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          textStyle: const TextStyle(fontSize: 18),
+          textStyle: const TextStyle(fontFamily: fontNameDefault, fontSize: 18),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: Colors.white,
           textStyle: const TextStyle(
-              fontSize: 15, decoration: TextDecoration.underline),
+              fontFamily: fontNameDefault,
+              fontSize: 15,
+              decoration: TextDecoration.underline),
         ),
       ),
     );

@@ -24,9 +24,9 @@ class MainScreen extends StatelessWidget {
                 'Stay Helzy with us!',
                 style: theme.textTheme.headlineSmall,
               ),
-              const Icon(
-                Icons.image,
-                size: 300,
+              SizedBox(
+                height: 300,
+                child: Image.asset('assets/images/heart-hands.png'),
               ),
               const SizedBox(height: 15),
               ElevatedButton(
