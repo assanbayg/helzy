@@ -37,16 +37,10 @@ class LoginScreen extends StatelessWidget {
                   Text('Please sign in!', style: theme.textTheme.headlineSmall),
                   const SizedBox(height: 20),
                   const Text('E-mail'),
-                  Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      color: Colors.white,
-                      child: const TextField()),
+                  const TextField(),
                   const SizedBox(height: 10),
                   const Text('Password'),
-                  Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      color: Colors.white,
-                      child: const TextField()),
+                  const TextField(),
                 ],
               ),
             ),

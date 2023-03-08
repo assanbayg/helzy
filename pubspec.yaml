@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_datetime_picker: ^1.5.1
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +62,13 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/heart-hands.png
+    - assets/images/analyses_icon.png
+    - assets/images/content_icon.png
+    - assets/images/nutrition_icon.png
+    - assets/images/plans_icon.png
+    - assets/images/sleep_icon.png
+    - assets/images/folder_icon.png
+    - assets/images/testing_notification_icon.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -75,12 +83,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Roboto
+    - family: Quicksand
       fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
-        - asset: assets/fonts/Roboto-Italic.ttf
-          style: italic
-        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Quicksand/Quicksand-Regular.ttf
+        - asset: assets/fonts/Quicksand/Quicksand-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Quicksand/Quicksand-Bold.ttf
           weight: 700
   #   - family: Trajan Pro
   #     fonts:

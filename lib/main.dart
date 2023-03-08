@@ -5,10 +5,12 @@ import './screens/navigation_bar.dart';
 import './screens/main_screen.dart';
 import './screens/login_screen.dart';
 import './screens/sign_up_screen.dart';
+import './screens/policy_screen.dart';
 import './screens/plans_screen.dart';
 import './screens/analyse_screen.dart';
 import './screens/meditation.dart';
 import './screens/nutrition.dart';
+import './screens/sleep_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,10 +31,12 @@ class MyApp extends StatelessWidget {
         NavigationBarScreen.routeName: (context) => const NavigationBarScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
         SignUpScreen.routeName: (context) => const SignUpScreen(),
+        PolicyScreen.routeName: (context) => const PolicyScreen(),
         PlansScreen.routeName: (context) => const PlansScreen(),
         AnalysesScreen.routeName: (context) => const AnalysesScreen(),
         Meditation.routeName: (context) => const Meditation(),
         Nutrition.routeName: (context) => const Nutrition(),
+        SleepScreen.routeName: (context) => const SleepScreen(),
       },
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './navigation_bar.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import './policy_screen.dart';
 import '../widgets/logo_title.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -14,7 +15,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    bool val = false;
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -41,70 +41,40 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Text('Please join us!', style: theme.textTheme.headlineSmall),
                   const SizedBox(height: 20),
                   const Text('Name'),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const TextField(),
-                  ),
+                  const TextField(),
                   const SizedBox(height: 10),
                   const Text('Surname'),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const TextField(),
-                  ),
+                  const TextField(),
                   const SizedBox(height: 10),
                   const Text('E-mail'),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const TextField(),
-                  ),
+                  const TextField(),
                   const SizedBox(height: 10),
                   const Text('Password'),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const TextField(),
-                  ),
+                  const TextField(),
                   const SizedBox(height: 20),
-                  const Text(
-                    'We promise to keep your data safe, secure and confidential. Please read our politics before creating an account',
-                    style: TextStyle(
-                      color: Colors.black54,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Switch(
-                        value: val,
-                        onChanged: ((value) {
-                          val != value;
-                        }),
-                      ),
-                      const Text('I agree'),
-                    ],
-                  ),
+                  TextButton(
+                      onPressed: () {
+                        DatePicker.showDatePicker(context,
+                            showTitleActions: true,
+                            minTime: DateTime(1923, 1, 1),
+                            maxTime: DateTime.now(),
+                            onChanged: (date) {},
+                            onConfirm: (date) {},
+                            currentTime: DateTime.now(),
+                            locale: LocaleType.en);
+                      },
+                      child: const Text('YY/MM/DD')),
                 ],
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(NavigationBarScreen.routeName);
-              },
-              child: const Text('Create an account'),
-            ),
           ]),
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: theme.primaryColor,
+          onPressed: () => Navigator.pushNamed(context, PolicyScreen.routeName),
+          child: const Icon(
+            Icons.arrow_forward_rounded,
+          ),
         ),
       ),
     );

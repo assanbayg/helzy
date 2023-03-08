@@ -4,15 +4,17 @@ const largeTextSize = 26;
 const mediumTextSize = 20;
 const smallTextSize = 16;
 
-const String fontNameDefault = 'Roboto';
+const String fontNameDefault = 'Quicksand';
 const String fontNameTitle = '';
 
 ThemeData basisTheme() => ThemeData(
       brightness: Brightness.light,
-      primaryColor: Colors.pink.shade400,
-      scaffoldBackgroundColor: Colors.blue.shade400,
+      primaryColor: Colors.pink,
+      //scaffoldBackgroundColor: Colors.blue.shade400,
+      scaffoldBackgroundColor: Colors.teal.shade300,
       fontFamily: fontNameDefault,
       textTheme: const TextTheme(
+        bodySmall: TextStyle(color: Colors.white),
         bodyMedium: TextStyle(color: Colors.white, fontSize: 16),
         headlineSmall: TextStyle(
             color: Colors.white,
@@ -31,7 +33,7 @@ ThemeData basisTheme() => ThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.pink,
           foregroundColor: Colors.white,
-          fixedSize: const Size(250, 50),
+          fixedSize: const Size(200, 50),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
@@ -42,9 +44,10 @@ ThemeData basisTheme() => ThemeData(
         style: TextButton.styleFrom(
           foregroundColor: Colors.white,
           textStyle: const TextStyle(
-              fontFamily: fontNameDefault,
-              fontSize: 15,
-              decoration: TextDecoration.underline),
+            fontFamily: fontNameDefault,
+            fontSize: 15,
+            decoration: TextDecoration.underline,
+          ),
         ),
       ),
     );

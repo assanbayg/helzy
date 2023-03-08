@@ -6,14 +6,14 @@ class LogoTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Icon(
-          Icons.logo_dev,
-          size: 80,
-        ),
+        SizedBox(
+            height: 80, child: Image.asset('assets/images/heart-hands.png')),
+        const SizedBox(width: 10),
         Text(
           'Helzy',
-          style: Theme.of(context).textTheme.headlineLarge,
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
       ],
     );

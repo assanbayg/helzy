@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/my_app_bar.dart';
-import '../widgets/analyse_list_tile.dart';
 
 class Meditation extends StatelessWidget {
   static const routeName = '/meditation';
   const Meditation({super.key});
+
+  Widget _buildAnalyseListTile(IconData icon, String title) {
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+      leading: Icon(icon, color: Colors.black),
+      title: Text(title),
+      trailing: const Icon(Icons.keyboard_arrow_right, size: 30.0),
+      //tileColor: Colors.blue.shade200,
+      hoverColor: Colors.white,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +24,13 @@ class Meditation extends StatelessWidget {
       child: Scaffold(
         appBar: MyAppBar(theme: theme, title: 'Meditation'),
         body: Column(
-          children: const [
-            AnalyseListTile(
-                icon: Icon(Icons.wb_twilight), title: 'Morning meditation'),
-            AnalyseListTile(
-                icon: Icon(Icons.energy_savings_leaf_outlined),
-                title: 'Evening meditation'),
-            AnalyseListTile(
-                icon: Icon(Icons.nightlight), title: 'Sleep meditation'),
-            AnalyseListTile(
-                icon: Icon(Icons.abc), title: 'Graditude meditation'),
-            AnalyseListTile(
-                icon: Icon(Icons.abc), title: 'Self-awareness meditation'),
+          children: [
+            _buildAnalyseListTile(Icons.wb_twilight, 'Morning meditation'),
+            _buildAnalyseListTile(
+                Icons.energy_savings_leaf_outlined, 'Evening meditation'),
+            _buildAnalyseListTile(Icons.nightlight, 'Sleep meditation'),
+            _buildAnalyseListTile(Icons.abc, 'Graditude meditation'),
+            _buildAnalyseListTile(Icons.abc, 'Self-awareness meditation'),
           ],
         ),
       ),

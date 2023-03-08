@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/widgets/plans_bms.dart';
 
 import '../widgets/my_app_bar.dart';
-import '../widgets/plans_card.dart';
 
 class PlansScreen extends StatefulWidget {
   static const routeName = '/plans';
@@ -12,6 +12,21 @@ class PlansScreen extends StatefulWidget {
 }
 
 class _PlansScreenState extends State<PlansScreen> {
+  void _showModalBottomSheet(String title) {
+    showModalBottomSheet(
+        backgroundColor: Colors.white,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
+          ),
+        ),
+        context: context,
+        builder: (BuildContext context) {
+          return PlanBottomModalSheet(title: title);
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -22,84 +37,52 @@ class _PlansScreenState extends State<PlansScreen> {
           title: 'My Plans',
         ),
         body: Padding(
-          padding: const EdgeInsets.only(left: 12, top: 15),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: Row(
                   children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Treatment',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700),
-                      ),
+                    SizedBox(
+                        height: 30,
+                        child: Image.asset('assets/images/folder_icon.png')),
+                    const SizedBox(width: 15),
+                    const Text(
+                      'Treatment',
                     ),
-                    IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
                   ],
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: const [
-                      PlansCard('Treatment', 'Description'),
-                      PlansCard('Treatment', 'Description'),
-                      PlansCard('Treatment', 'Description'),
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Medication',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700),
-                      ),
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      _showModalBottomSheet('medication');
+                    },
+                    child: const Text(
+                      'Medication',
                     ),
-                    IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+                  ),
+                ],
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Row(
+                  children: [
+                    SizedBox(
+                        height: 30,
+                        child: Image.asset(
+                            'assets/images/testing_notification_icon.png')),
+                    const SizedBox(width: 15),
+                    const Text(
+                      'Notifications',
+                    ),
                   ],
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: const [
-                      PlansCard('Medication', 'Description'),
-                      PlansCard('Medication n1', 'Description'),
-                      PlansCard('Medication n2', 'Description'),
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Folders',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700),
-                      ),
-                    ),
-                    IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
-                  ],
-                ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: const [
-                      PlansCard('Folder', 'Description'),
-                      PlansCard('Folder2', 'Description'),
-                      PlansCard('Folder', 'Description'),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

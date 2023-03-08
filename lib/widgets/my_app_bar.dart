@@ -14,7 +14,8 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: const Icon(Icons.logo_dev),
+      leading: SizedBox(
+          height: 15, child: Image.asset('assets/images/heart-hands.png')),
       title: Text(title),
       backgroundColor: theme.primaryColor,
     );
