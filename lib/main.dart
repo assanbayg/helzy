@@ -11,6 +11,10 @@ import './screens/analyse_screen.dart';
 import './screens/meditation.dart';
 import './screens/nutrition.dart';
 import './screens/sleep_screen.dart';
+import './screens/content_screen.dart';
+import './screens/notifications_screen.dart';
+import './screens/star_screen.dart';
+import './screens/my_stars_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,6 +41,10 @@ class MyApp extends StatelessWidget {
         Meditation.routeName: (context) => const Meditation(),
         Nutrition.routeName: (context) => const Nutrition(),
         SleepScreen.routeName: (context) => const SleepScreen(),
+        ContentScreen.routeName: (context) => const ContentScreen(),
+        NotificationsScreen.routeName: (context) => const NotificationsScreen(),
+        StarScreen.routeName: (context) => const StarScreen(),
+        HelzyStarsScreen.routeName: (context) => const HelzyStarsScreen(),
       },
     );
   }

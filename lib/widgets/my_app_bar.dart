@@ -14,9 +14,13 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))),
       leading: SizedBox(
           height: 15, child: Image.asset('assets/images/heart-hands.png')),
-      title: Text(title),
+      title: Text(
+        title,
+      ),
       backgroundColor: theme.primaryColor,
     );
   }

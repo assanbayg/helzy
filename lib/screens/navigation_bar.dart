@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:helzy/screens/meditation.dart';
 
+import './sleep_screen.dart';
 import './plans_screen.dart';
 import './analyse_screen.dart';
 import './nutrition.dart';
+import './content_screen.dart';
 
 class NavigationBarScreen extends StatefulWidget {
   static const routeName = '/nav-bar';
@@ -17,10 +18,10 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   var selectedIndex = 0;
   static const List<Widget> screens = [
     AnalysesScreen(),
-    Meditation(),
+    SleepScreen(),
     PlansScreen(),
     Nutrition(),
-    Center(),
+    ContentScreen(),
   ];
 
   Widget buildIcon(String title, String icon) {
@@ -35,6 +36,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
     return Scaffold(
         body: screens[selectedIndex],
         bottomNavigationBar: Container(
+          height: 65,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(30), topLeft: Radius.circular(30)),
