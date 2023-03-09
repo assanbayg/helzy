@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import './sleep_screen.dart';
-import './plans_screen.dart';
-import './analyse_screen.dart';
-import './nutrition.dart';
-import './content_screen.dart';
+import 'nav_bar_screens/sleep_screen.dart';
+import 'nav_bar_screens/plans_screen.dart';
+import 'nav_bar_screens/analyse_screen.dart';
+import 'nav_bar_screens/nutrition.dart';
+import 'nav_bar_screens/content_screen.dart';
 
 class NavigationBarScreen extends StatefulWidget {
   static const routeName = '/nav-bar';

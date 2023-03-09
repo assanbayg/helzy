@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/my_app_bar.dart';
+import '../../widgets/my_app_bar.dart';
 
 class Nutrition extends StatelessWidget {
   static const routeName = '/nutrition';

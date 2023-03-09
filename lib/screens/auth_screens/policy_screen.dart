@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './navigation_bar.dart';
-import '../widgets/logo_title.dart';
+import '../navigation_bar.dart';
+import '../../widgets/logo_title.dart';
 
 class PolicyScreen extends StatefulWidget {
   static const routeName = '/policy';

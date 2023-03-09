@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './my_stars_screen.dart';
+import 'my_stars_screen.dart';
 
 class StarScreen extends StatelessWidget {
   static const routeName = '/sleep/star';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helzy/screens/notifications_screen.dart';
 import 'package:helzy/widgets/plans_bms.dart';
 
-import '../widgets/my_app_bar.dart';
+import '../../widgets/my_app_bar.dart';
 
 class PlansScreen extends StatefulWidget {
   static const routeName = '/plans';

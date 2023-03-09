@@ -28,6 +28,10 @@ ThemeData basisTheme() => ThemeData(
             color: Colors.white,
             fontFamily: fontNameDefault,
             fontWeight: FontWeight.w700),
+        displayLarge: TextStyle(
+            color: Colors.white,
+            fontFamily: fontNameDefault,
+            fontWeight: FontWeight.w700),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(

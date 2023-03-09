@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/my_app_bar.dart';
+import '../../../widgets/my_app_bar.dart';
 
 class Meditation extends StatelessWidget {
   static const routeName = '/meditation';
@@ -22,7 +22,10 @@ class Meditation extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     return SafeArea(
       child: Scaffold(
-        appBar: MyAppBar(theme: theme, title: 'Meditation'),
+        appBar: AppBar(
+          backgroundColor: theme.scaffoldBackgroundColor,
+          elevation: 0,
+        ),
         body: Column(
           children: [
             _buildAnalyseListTile(Icons.wb_twilight, 'Morning meditation'),
