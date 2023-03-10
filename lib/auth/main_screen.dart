@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'auth_screens/login_screen.dart';
-import 'auth_screens/sign_up_screen.dart';
+import 'login_screen.dart';
+import 'sign_up_screen.dart';
 
 class MainScreen extends StatelessWidget {
   static const routeName = '/';

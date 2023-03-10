@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../widgets/sleep_hours_line_chart.dart';
+import '../widgets/sleep_hours_line_chart.dart';
 
 class SleepResultsScreen extends StatefulWidget {
   static const routeName = '/sleep/results';

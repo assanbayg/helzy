@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:helzy/screens/nav_bar_screens/sleep_screens/good_night_screen.dart';
-import 'package:helzy/screens/nav_bar_screens/sleep_screens/meditation.dart';
+import 'package:helzy/sleep/screens/good_night_screen.dart';
+import 'package:helzy/sleep/screens/meditation.dart';
 
-import 'sleep_screens/sleep_results_screen.dart';
-import '../../widgets/my_app_bar.dart';
-import '../../widgets/star_floating_action_button.dart';
+import '../sleep/sleep_results_screen.dart';
+import '../widgets/my_app_bar.dart';
+import '../widgets/star_floating_action_button.dart';
 
 class SleepScreen extends StatelessWidget {
   static const routeName = '/sleep';

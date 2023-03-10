@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helzy/screens/nav_bar_screens/sleep_screens/star_screen.dart';
+import '/star_screen.dart';
 
 class StarFloatingActionButton extends StatelessWidget {
   const StarFloatingActionButton({

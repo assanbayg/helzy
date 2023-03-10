@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../navigation_bar.dart';
-import '../../widgets/logo_title.dart';
+import '../widgets/logo_title.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/login';

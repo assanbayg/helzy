@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../../widgets/star_floating_action_button.dart';
+import '../../widgets/star_floating_action_button.dart';
 
 class GoodNightScreen extends StatelessWidget {
   static const routeName = '/sleep/good-night';

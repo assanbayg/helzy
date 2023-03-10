@@ -16,6 +16,10 @@ ThemeData basisTheme() => ThemeData(
       textTheme: const TextTheme(
         bodySmall: TextStyle(color: Colors.white),
         bodyMedium: TextStyle(color: Colors.white, fontSize: 16),
+        bodyLarge: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+        ),
         headlineSmall: TextStyle(
             color: Colors.white,
             fontFamily: fontNameDefault,

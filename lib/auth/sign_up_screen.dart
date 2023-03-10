@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'policy_screen.dart';
-import '../../widgets/logo_title.dart';
+import '../widgets/logo_title.dart';
 
 class SignUpScreen extends StatefulWidget {
   static const routeName = '/sign up';
