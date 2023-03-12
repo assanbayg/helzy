@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/helzy_star.dart';
+import '../../widgets/my_app_bar.dart';
 
 class HelzyStarsScreen extends StatefulWidget {
   static const routeName = '/sleep/star/my-stars';
@@ -11,14 +15,13 @@ class HelzyStarsScreen extends StatefulWidget {
 class _HelzyStarsScreenState extends State<HelzyStarsScreen> {
   @override
   Widget build(BuildContext context) {
-    int waterCount = 12;
-    int sleepCount = 25;
-    int starsCount = waterCount + sleepCount;
+    int waterCount = Provider.of<HelzyStars>(context).waterCount;
+    int sleepCount = Provider.of<HelzyStars>(context).sleepCount;
+    int starsCount = Provider.of<HelzyStars>(context).starsCount;
 
     ThemeData theme = Theme.of(context);
     return Scaffold(
-      appBar:
-          AppBar(backgroundColor: theme.scaffoldBackgroundColor, elevation: 0),
+      appBar: ChildAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(14),
         child: SizedBox(

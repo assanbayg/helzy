@@ -2,7 +2,7 @@ name: helzy
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.0 <3.0.0'
+  sdk: ">=2.19.0 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -31,7 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -41,6 +40,7 @@ dependencies:
   flutter_local_notifications: ^13.0.0
   fl_chart: ^0.61.0
   flutter_native_timezone: ^2.0.0
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
@@ -58,7 +58,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -69,7 +68,6 @@ flutter:
     - assets/images/heart-hands.png
     - assets/images/analyses_icon.png
     - assets/images/content_icon.png
-    - assets/images/nutrition_icon.png
     - assets/images/plans_icon.png
     - assets/images/sleep_icon.png
     - assets/images/folder_icon.png
@@ -78,7 +76,15 @@ flutter:
     - assets/images/star.png
     - assets/images/bubble.png
     - assets/images/alarm.png
-
+    - assets/images/content.png
+    - assets/images/video.png
+    - assets/images/water.png
+    - assets/images/treatment.png
+    - assets/images/notifications.png
+    - assets/images/what-is-diabetes.png
+    - assets/images/habits.png
+    - assets/images/steps_icon.png
+    - assets/images/exercise_icon.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
@@ -93,7 +99,7 @@ flutter:
   fonts:
     - family: Quicksand
       fonts:
-        - asset: assets/fonts/Quicksand/Quicksand-Regular.ttf
+        - asset: assets/fonts/Quicksand/Quicksand-Medium.ttf
         - asset: assets/fonts/Quicksand/Quicksand-Light.ttf
           weight: 300
         - asset: assets/fonts/Quicksand/Quicksand-Bold.ttf

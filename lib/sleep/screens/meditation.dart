@@ -1,36 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../widgets/buy_item.dart';
+import '../../providers/video.dart';
+import '../../providers/helzy_star.dart';
+import '../../widgets/my_app_bar.dart';
+import '../widgets/video_item.dart';
 
-class Meditation extends StatelessWidget {
+class Meditation extends StatefulWidget {
   static const routeName = '/meditation';
   const Meditation({super.key});
 
   @override
+  State<Meditation> createState() => _MeditationState();
+}
+
+class _MeditationState extends State<Meditation> {
+  @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    List<Video> videos = Provider.of<Videos>(context).videos;
+    int starsCount = Provider.of<HelzyStars>(context).starsCount;
+
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: theme.scaffoldBackgroundColor,
-          elevation: 0,
-        ),
+        appBar: ChildAppBar(),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Meditation', style: theme.textTheme.headlineMedium),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Meditation', style: theme.textTheme.headlineMedium),
+                  Row(
+                    children: [
+                      Text('$starsCount',
+                          style: theme.textTheme.headlineMedium),
+                      SizedBox(
+                          height: 35,
+                          child: Image.asset('assets/images/star.png')),
+                    ],
+                  ),
+                ],
+              ),
               const SizedBox(height: 10),
-              SingleChildScrollView(
-                child: Column(
-                  children: const [
-                    BuyItem(
-                      title: 'Why is meditation important?',
-                      price: 14,
-                      isContent: false,
-                    ),
-                  ],
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.8,
+                child: ListView.builder(
+                  itemCount: videos.length,
+                  itemBuilder: (BuildContext context, index) =>
+                      VideoItem(index: index),
                 ),
               ),
             ],

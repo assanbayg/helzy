@@ -1,17 +1,31 @@
+import 'package:helzy/providers/helzy_star.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/buy_item.dart';
+import '../providers/content.dart';
+import '../content/widgets/content_item.dart';
 import '../widgets/my_app_bar.dart';
 
-class ContentScreen extends StatelessWidget {
+class ContentScreen extends StatefulWidget {
   static const routeName = '/content';
   const ContentScreen({super.key});
 
   @override
+  State<ContentScreen> createState() => _ContentScreenState();
+}
+
+class _ContentScreenState extends State<ContentScreen> {
+  @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
+    List<Content> contentList = Provider.of<ContentList>(context).contentList;
+    int starsCount = Provider.of<HelzyStars>(context).starsCount;
     return Scaffold(
-      appBar: MyAppBar(theme: theme, title: 'My Content'),
+      appBar: MyAppBar(
+        theme: theme,
+        title: 'Content',
+        text: '$starsCount',
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -38,16 +52,13 @@ class ContentScreen extends StatelessWidget {
               onChanged: (val) {},
             ),
             const SizedBox(height: 20),
-            SingleChildScrollView(
-              child: Column(
-                children: const [
-                  BuyItem(
-                    title: 'What is Diabetes?',
-                    price: 14,
-                    isContent: true,
-                  ),
-                ],
-              ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.65,
+              child: ListView.builder(
+                  itemCount: contentList.length,
+                  itemBuilder: (BuildContext context, index) {
+                    return ContentBuyItem(index: index);
+                  }),
             ),
           ],
         ),

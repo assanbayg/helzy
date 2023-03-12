@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/widgets/my_app_bar.dart';
 
 import '../widgets/sleep_hours_line_chart.dart';
 
@@ -19,8 +20,7 @@ class _SleepResultsScreenState extends State<SleepResultsScreen> {
 
     ThemeData theme = Theme.of(context);
     return Scaffold(
-      appBar:
-          AppBar(backgroundColor: theme.scaffoldBackgroundColor, elevation: 0),
+      appBar: ChildAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(14),
         child: SingleChildScrollView(

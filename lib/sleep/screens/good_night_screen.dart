@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/widgets/my_app_bar.dart';
 import 'package:intl/intl.dart';
 import '../../widgets/star_floating_action_button.dart';
 
@@ -13,10 +14,7 @@ class GoodNightScreen extends StatelessWidget {
 
     ThemeData theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: theme.scaffoldBackgroundColor,
-        elevation: 0,
-      ),
+      appBar: ChildAppBar(),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

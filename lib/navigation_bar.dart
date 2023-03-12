@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'navigation/sleep_screen.dart';
 import 'navigation/plans_screen.dart';
 import 'navigation/analyse_screen.dart';
-import 'navigation/nutrition_screen.dart';
+import 'navigation/habits_screen.dart';
 import 'navigation/content_screen.dart';
 
 class NavigationBarScreen extends StatefulWidget {
@@ -20,103 +20,80 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
     AnalysesScreen(),
     SleepScreen(),
     PlansScreen(),
-    Nutrition(),
+    HabitsScreen(),
     ContentScreen(),
   ];
 
-  Widget buildIcon(String title, String icon) {
-    return NavigationDestination(
-      icon: ImageIcon(AssetImage(icon)),
-      label: title,
+  Widget buildIcon(String icon) {
+    return ImageIcon(
+      AssetImage(icon),
+      color: Theme.of(context).scaffoldBackgroundColor,
+      size: 35,
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: screens[selectedIndex],
-        bottomNavigationBar: Container(
-          height: 65,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(30), topLeft: Radius.circular(30)),
-            boxShadow: [
-              BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
+      body: screens[selectedIndex],
+      bottomNavigationBar: Container(
+        height: 76,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+          boxShadow: [
+            BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
+          ),
+          child: BottomNavigationBar(
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            currentIndex: selectedIndex,
+            unselectedItemColor: Colors.black,
+            selectedIconTheme:
+                IconThemeData(color: Theme.of(context).primaryColor),
+            onTap: (value) => setState(() {
+              selectedIndex = value;
+            }),
+            items: [
+              BottomNavigationBarItem(
+                  icon: buildIcon('assets/images/analyses_icon.png'),
+                  label: 'Analyses'),
+              BottomNavigationBarItem(
+                icon: buildIcon('assets/images/sleep_icon.png'),
+                label: 'Sleep',
+              ),
+              BottomNavigationBarItem(
+                  icon: Container(
+                      padding: const EdgeInsets.all(2),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).scaffoldBackgroundColor,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.add_rounded,
+                        size: 40,
+                        color: Colors.white,
+                      )),
+                  label: ''),
+              BottomNavigationBarItem(
+                icon: buildIcon('assets/images/habits.png'),
+                label: 'Nutrition',
+              ),
+              BottomNavigationBarItem(
+                icon: buildIcon('assets/images/content_icon.png'),
+                label: 'Content',
+              ),
             ],
           ),
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(30.0),
-              topRight: Radius.circular(30.0),
-            ),
-            child: BottomNavigationBar(
-              currentIndex: selectedIndex,
-              unselectedItemColor: Colors.black,
-              selectedItemColor: Theme.of(context).primaryColor,
-              onTap: (value) => setState(() {
-                selectedIndex = value;
-              }),
-              items: const [
-                BottomNavigationBarItem(
-                    icon: ImageIcon(
-                      AssetImage('assets/images/analyses_icon.png'),
-                    ),
-                    label: 'Analyses'),
-                BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage('assets/images/sleep_icon.png'),
-                  ),
-                  label: 'Sleep',
-                ),
-                BottomNavigationBarItem(
-                    icon: ImageIcon(
-                      AssetImage('assets/images/plans_icon.png'),
-                    ),
-                    label: 'Plans'),
-                BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage('assets/images/nutrition_icon.png'),
-                  ),
-                  label: 'Nutrition',
-                ),
-                BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage('assets/images/content_icon.png'),
-                  ),
-                  label: 'Content',
-                ),
-              ],
-            ),
-          ),
-        )
-        // NavigationBarTheme(
-        //   data: NavigationBarThemeData(
-        //     backgroundColor: Colors.white,
-        //     indicatorColor: Colors.grey.shade300,
-        //     labelTextStyle: MaterialStateProperty.all(
-        //       const TextStyle(
-        //         color: Colors.black,
-        //         fontWeight: FontWeight.w700,
-        //         fontSize: 12,
-        //       ),
-        //     ),
-        //   ),
-        //   child:
-
-        // NavigationBar(
-        //   height: 70,
-        //   selectedIndex: selectedIndex,
-        //   onDestinationSelected: (index) =>
-        //       setState(() => selectedIndex = index),
-        //   destinations: [
-        //     buildIcon('Analyses', 'assets/images/analyses_icon.png'),
-        //     buildIcon('Sleep', 'assets/images/sleep_icon.png'),
-        //     buildIcon('Plans', 'assets/images/plans_icon.png'),
-        //     buildIcon('Nutrition', 'assets/images/nutrition_icon.png'),
-        //     buildIcon('Content', 'assets/images/content_icon.png')
-        //   ],
-        //     ),
-//      ),
-        );
+        ),
+      ),
+    );
   }
 }

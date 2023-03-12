@@ -10,8 +10,7 @@ const String fontNameTitle = '';
 ThemeData basisTheme() => ThemeData(
       brightness: Brightness.light,
       primaryColor: Colors.pink,
-      //scaffoldBackgroundColor: Colors.blue.shade400,
-      scaffoldBackgroundColor: Colors.teal.shade300,
+      scaffoldBackgroundColor: const Color.fromRGBO(77, 184, 158, 1),
       fontFamily: fontNameDefault,
       textTheme: const TextTheme(
         bodySmall: TextStyle(color: Colors.white),

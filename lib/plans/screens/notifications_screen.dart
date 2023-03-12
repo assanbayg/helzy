@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/widgets/my_app_bar.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:async';
@@ -24,10 +25,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
     MediaQueryData mediaQuery = MediaQuery.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 0,
-      ),
+      appBar: ChildAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         child: Row(

@@ -95,7 +95,7 @@ class AnalysesScreen extends StatelessWidget {
                     child: Image.asset('assets/images/folder_icon.png'),
                   ),
                   const SizedBox(width: 15),
-                  const Text('Folders'),
+                  const Text('Blood analysis'),
                 ],
               ),
             ),
