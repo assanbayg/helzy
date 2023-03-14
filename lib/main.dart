@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/habits/screens/diary_screen.dart';
+import 'package:helzy/plans/screens/treatment_screen.dart';
 import 'package:provider/provider.dart';
+import 'habits/screens/steps_screen.dart';
 import 'theme.dart';
 
 import 'navigation_bar.dart';
@@ -17,8 +20,8 @@ import 'auth/policy_screen.dart';
 import 'navigation/analyse_screen.dart';
 
 import 'navigation/habits_screen.dart';
-import 'nutrition/screens/water_screen.dart';
-import 'nutrition/screens/my_diet_screen.dart';
+import 'habits/screens/water_screen.dart';
+import 'habits/screens/my_diet_screen.dart';
 
 import 'navigation/content_screen.dart';
 
@@ -45,6 +48,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => HelzyStars()),
         ChangeNotifierProvider(create: (ctx) => Videos()),
         ChangeNotifierProvider(create: (ctx) => ContentList()),
+        ChangeNotifierProvider(create: (ctx) => Sleep()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -72,6 +76,9 @@ class MyApp extends StatelessWidget {
           GoodNightScreen.routeName: (context) => const GoodNightScreen(),
           WaterScreen.routeName: (context) => const WaterScreen(),
           MyDietScreen.routeName: (context) => const MyDietScreen(),
+          StepsScreen.routeName: (context) => const StepsScreen(),
+          Treatment.routeName: (context) => const Treatment(),
+          DiaryScreen.routeName: (context) => const DiaryScreen(),
         },
       ),
     );

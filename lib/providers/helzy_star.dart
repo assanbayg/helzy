@@ -23,3 +23,13 @@ class HelzyStars with ChangeNotifier {
     notifyListeners();
   }
 }
+
+class Sleep with ChangeNotifier {
+  List<double> sleepHours = [8, 4, 11, 5.6, 6.7, 8, 8];
+
+  void addNew(val) {
+    sleepHours.removeAt(0);
+    sleepHours.add(val);
+    notifyListeners();
+  }
+}

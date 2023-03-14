@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:helzy/nutrition/screens/my_diet_screen.dart';
-import '../nutrition/screens/water_screen.dart';
+import 'package:helzy/habits/screens/diary_screen.dart';
+import 'package:helzy/habits/screens/my_diet_screen.dart';
+import '../habits/screens/steps_screen.dart';
+import '../habits/screens/water_screen.dart';
 
 import '../widgets/my_app_bar.dart';
 import '../widgets/star_floating_action_button.dart';
@@ -26,7 +28,7 @@ class HabitsScreen extends StatelessWidget {
               left: 20,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, WaterScreen.routeName);
+                  Navigator.pushNamed(context, StepsScreen.routeName);
                 },
                 child: Container(
                   height: 110,
@@ -95,13 +97,11 @@ class HabitsScreen extends StatelessWidget {
                   Navigator.of(context).pushNamed(MyDietScreen.routeName);
                 },
                 child: Container(
-                  height: 240,
-                  width: 240,
+                  height: mediaQuery.size.width * 0.55,
+                  width: mediaQuery.size.width * 0.55,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Colors.red.shade200,
-                    borderRadius: BorderRadius.circular(120),
-                  ),
+                      color: Colors.red.shade200, shape: BoxShape.circle),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -127,41 +127,43 @@ class HabitsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              bottom: 180,
-              right: 20,
-              child: GestureDetector(
-                onTap: () {},
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.yellow.shade600,
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Exercise',
-                        style: TextStyle(fontWeight: FontWeight.w700),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        height: 40,
-                        child: Image.asset('assets/images/exercise_icon.png'),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            // Positioned(
+            //   bottom: 180,
+            //   right: 20,
+            //   child: GestureDetector(
+            //     onTap: () {},
+            //     child: Container(
+            //       height: 100,
+            //       width: 100,
+            //       alignment: Alignment.center,
+            //       decoration: BoxDecoration(
+            //         color: Colors.yellow.shade600,
+            //         borderRadius: BorderRadius.circular(50),
+            //       ),
+            //       child: Column(
+            //         mainAxisAlignment: MainAxisAlignment.center,
+            //         children: [
+            //           const Text(
+            //             'Exercise',
+            //             style: TextStyle(fontWeight: FontWeight.w700),
+            //             textAlign: TextAlign.center,
+            //           ),
+            //           SizedBox(
+            //             height: 40,
+            //             child: Image.asset('assets/images/exercise_icon.png'),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Positioned(
               bottom: 60,
               left: 40,
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, DiaryScreen.routeName);
+                },
                 child: Container(
                   height: 170,
                   width: 170,

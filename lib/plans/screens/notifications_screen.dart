@@ -47,6 +47,45 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     onDateChanged: (date) {},
                   ),
                 ),
+                SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(
+                      'Choose Day:  ',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    Text(
+                      'Every Wednesday',
+                      style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(
+                      'Choose Time:  ',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    Text(
+                      '17:00',
+                      style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 30),
+                Center(
+                    child:
+                        ElevatedButton(onPressed: () {}, child: Text('Save')))
               ],
             ),
           ],

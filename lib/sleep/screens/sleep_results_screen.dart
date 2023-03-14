@@ -75,6 +75,12 @@ class _SleepResultsScreenState extends State<SleepResultsScreen> {
                         color: Colors.black,
                       ),
                     ),
+                    ElevatedButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Add time',
+                          style: TextStyle(color: Colors.black),
+                        )),
                   ],
                 ),
               ),

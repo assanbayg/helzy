@@ -34,7 +34,7 @@ class GoodNightScreen extends StatelessWidget {
                 style: theme.textTheme.headlineLarge,
               ),
               Text(
-                formatter.format(now).toString(),
+                '06:00',
                 style: theme.textTheme.displayLarge,
               ),
               ElevatedButton(

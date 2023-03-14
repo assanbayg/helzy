@@ -13,6 +13,7 @@ class SleepScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
+    MediaQueryData mediaQueryData = MediaQuery.of(context);
 
     return Scaffold(
       appBar: MyAppBar(theme: theme, title: 'My Sleep'),
@@ -22,28 +23,29 @@ class SleepScreen extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              top: 20,
-              right: 20,
+              top: mediaQueryData.size.height * 0.025,
+              right: mediaQueryData.size.height * 0.025,
               child: GestureDetector(
                 child: SizedBox(
-                  height: 150,
+                  height: mediaQueryData.size.height * 0.175,
                   child: Image.asset('assets/images/sleep.png'),
                 ),
               ),
             ),
             Positioned(
-              top: 200,
+              top: mediaQueryData.size.height * 0.25,
+              //top: 200,
               right: 20,
               child: GestureDetector(
                 onTap: () =>
                     Navigator.pushNamed(context, SleepResultsScreen.routeName),
                 child: Container(
-                  height: 200,
-                  width: 200,
+                  height: mediaQueryData.size.height * 0.25,
+                  width: mediaQueryData.size.height * 0.25,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.yellow.shade600,
-                    borderRadius: BorderRadius.circular(100),
+                    shape: BoxShape.circle,
                   ),
                   child: Text(
                     'Results',
@@ -64,7 +66,7 @@ class SleepScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.black,
-                    borderRadius: BorderRadius.circular(60),
+                    shape: BoxShape.circle,
                   ),
                   child: Text(
                     'Good Night',
@@ -75,8 +77,8 @@ class SleepScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 200,
-              left: 150,
+              bottom: mediaQueryData.size.width * 0.4,
+              left: 100,
               child: GestureDetector(
                 onTap: () => Navigator.pushNamed(context, Meditation.routeName),
                 child: Container(
@@ -85,7 +87,7 @@ class SleepScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.red.shade300,
-                    borderRadius: BorderRadius.circular(45),
+                    shape: BoxShape.circle,
                   ),
                   child: const Text(
                     'Meditation',

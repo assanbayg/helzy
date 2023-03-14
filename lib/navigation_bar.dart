@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'navigation/sleep_screen.dart';
 import 'navigation/plans_screen.dart';
-import 'navigation/analyse_screen.dart';
+import 'file_management/analyses_screen.dart';
 import 'navigation/habits_screen.dart';
 import 'navigation/content_screen.dart';
 
@@ -16,7 +16,7 @@ class NavigationBarScreen extends StatefulWidget {
 
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
   var selectedIndex = 0;
-  static const List<Widget> screens = [
+  static List<Widget> screens = [
     AnalysesScreen(),
     SleepScreen(),
     PlansScreen(),

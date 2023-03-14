@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/providers/helzy_star.dart';
+import 'package:provider/provider.dart';
 
 import 'widgets/sleep_hours_line_chart.dart';
 
@@ -13,7 +15,8 @@ class SleepResultsScreen extends StatefulWidget {
 class _SleepResultsScreenState extends State<SleepResultsScreen> {
   @override
   Widget build(BuildContext context) {
-    List<double> sleepHours = [8, 4, 11, 5.6, 6.7, 8, 8];
+    List<double> sleepHours = Provider.of<Sleep>(context).sleepHours;
+    double todaySleep = 0;
     double avgSleep =
         sleepHours.reduce((value, element) => value + element) / 7;
 
@@ -77,6 +80,36 @@ class _SleepResultsScreenState extends State<SleepResultsScreen> {
                     ),
                   ],
                 ),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return SimpleDialog(
+                        title: Text('Today I slept... hours'),
+                        children: [
+                          SimpleDialogOption(
+                            child: TextField(
+                              keyboardType: TextInputType.number,
+                              onSubmitted: (value) {
+                                setState(() {
+                                  todaySleep = double.parse(value);
+                                  Provider.of<Sleep>(context, listen: false)
+                                      .addNew(todaySleep);
+                                });
+                                Navigator.of(context, rootNavigator: true)
+                                    .pop();
+                              },
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Text('Add'),
               ),
             ],
           ),
