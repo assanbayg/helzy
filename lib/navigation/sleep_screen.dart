@@ -59,12 +59,12 @@ class SleepScreen extends StatelessWidget {
                 onTap: () =>
                     Navigator.pushNamed(context, GoodNightScreen.routeName),
                 child: Container(
-                  height: 100,
-                  width: 100,
+                  height: 120,
+                  width: 120,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Colors.blueGrey.shade900,
-                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(60),
                   ),
                   child: Text(
                     'Good Night',
@@ -75,7 +75,7 @@ class SleepScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 160,
+              bottom: 200,
               left: 150,
               child: GestureDetector(
                 onTap: () => Navigator.pushNamed(context, Meditation.routeName),
@@ -84,12 +84,12 @@ class SleepScreen extends StatelessWidget {
                   width: 90,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Colors.pink.shade300,
+                    color: Colors.red.shade300,
                     borderRadius: BorderRadius.circular(45),
                   ),
                   child: const Text(
                     'Meditation',
-                    style: TextStyle(fontWeight: FontWeight.w700),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                     textAlign: TextAlign.center,
                   ),
                 ),

@@ -42,39 +42,42 @@ class AnalysesScreen extends StatelessWidget {
                       ),
                     ),
                     builder: (BuildContext ctx) {
-                      return Column(
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(10),
-                            decoration: const BoxDecoration(
-                                color: Color.fromARGB(255, 233, 129, 142),
-                                borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(30))),
-                            child: Column(children: [
-                              Text(
-                                'Add analyses',
-                                style: theme.textTheme.headlineSmall,
-                              )
-                            ]),
-                          ),
-                          _buildAnalyseListTile(
-                            Icons.add_a_photo_rounded,
-                            'Take a photo',
-                          ),
-                          _buildAnalyseListTile(
-                            Icons.photo,
-                            'Choose from gallery',
-                          ),
-                          _buildAnalyseListTile(
-                            Icons.picture_as_pdf,
-                            'Impact a pdf',
-                          ),
-                          _buildAnalyseListTile(
-                            Icons.edit_note_rounded,
-                            'Enter manually',
-                          ),
-                        ],
+                      return SizedBox(
+                        height: 300,
+                        child: Column(
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.all(10),
+                              decoration: const BoxDecoration(
+                                  color: Color.fromARGB(255, 233, 129, 142),
+                                  borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(30))),
+                              child: Column(children: [
+                                Text(
+                                  'Create',
+                                  style: theme.textTheme.headlineSmall,
+                                )
+                              ]),
+                            ),
+                            _buildAnalyseListTile(
+                              Icons.add_a_photo_rounded,
+                              'Take a photo',
+                            ),
+                            _buildAnalyseListTile(
+                              Icons.photo,
+                              'Choose from gallery',
+                            ),
+                            _buildAnalyseListTile(
+                              Icons.picture_as_pdf,
+                              'Impact a pdf',
+                            ),
+                            _buildAnalyseListTile(
+                              Icons.edit_note_rounded,
+                              'Enter manually',
+                            ),
+                          ],
+                        ),
                       );
                     });
               },

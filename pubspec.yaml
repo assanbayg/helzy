@@ -85,6 +85,8 @@ flutter:
     - assets/images/habits.png
     - assets/images/steps_icon.png
     - assets/images/exercise_icon.png
+    - assets/images/parkinson.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

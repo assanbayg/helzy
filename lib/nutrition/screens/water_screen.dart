@@ -1,8 +1,3 @@
-import 'dart:async';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:intl/intl.dart';
-import 'package:flutter_native_timezone/flutter_native_timezone.dart';
-import 'package:timezone/timezone.dart' as tz;
 import 'package:flutter/material.dart';
 import '../../widgets/star_floating_action_button.dart';
 import '../../widgets/my_app_bar.dart' show ChildAppBar;
@@ -18,73 +13,29 @@ class WaterScreen extends StatefulWidget {
 class _WaterScreenState extends State<WaterScreen> {
   @override
   Widget build(BuildContext context) {
-    FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-        FlutterLocalNotificationsPlugin();
     ThemeData theme = Theme.of(context);
     List<String> waterTimes = ['14:00', '16:00', '18:00'];
     List<bool> todayTimes = [false, false, false];
     List<bool> yesterdayTimes = [false, false, false];
 
-    void initNotifications() async {
-      AndroidInitializationSettings initializationSettingsAndroid =
-          const AndroidInitializationSettings('app_icon');
-
-      InitializationSettings initializationSettings = InitializationSettings(
-        android: initializationSettingsAndroid,
-      );
-      await flutterLocalNotificationsPlugin.initialize(initializationSettings);
-    }
-
-    void scheduleAlarms() async {
-      todayTimes = [];
-      yesterdayTimes = [];
-      for (int i = 0; i < waterTimes.length; i++) {
-        todayTimes.add(false);
-        yesterdayTimes.add(false);
-
-        String time = waterTimes[i];
-        List<String> parts = time.split(':');
-        int hours = int.parse(parts[0]);
-        int minutes = int.parse(parts[1]);
-        DateTime now = DateTime.now();
-        DateTime scheduledTime =
-            DateTime(now.year, now.month, now.day, hours, minutes);
-        if (scheduledTime.isBefore(now)) {
-          scheduledTime = scheduledTime.add(const Duration(days: 1));
-        }
-        AndroidNotificationDetails androidPlatformChannelSpecifics =
-            const AndroidNotificationDetails(
-          'alarm_channel_id',
-          'Alarm',
-          importance: Importance.high,
-          priority: Priority.high,
-          playSound: true,
-          sound: RawResourceAndroidNotificationSound('alarm_sound'),
-          enableVibration: true,
-          channelShowBadge: true,
-          visibility: NotificationVisibility.public,
-        );
-        NotificationDetails platformChannelSpecifics = NotificationDetails(
-          android: androidPlatformChannelSpecifics,
-        );
-        await flutterLocalNotificationsPlugin.zonedSchedule(
-          0,
-          'Alarm',
-          'Wake up!',
-          tz.TZDateTime.from(scheduledTime, tz.local),
-          platformChannelSpecifics,
-          androidAllowWhileIdle: true,
-          uiLocalNotificationDateInterpretation:
-              UILocalNotificationDateInterpretation.absoluteTime,
-          matchDateTimeComponents: DateTimeComponents.time,
-        );
-      }
-    }
-
-    @override
-    initState() {
-      initNotifications();
-      super.initState();
+    void addNewTime(BuildContext context) {
+      showDialog(
+          context: context,
+          builder: (BuildContext ctx) {
+            return SimpleDialog(
+              title: const Text('Add a new time'),
+              children: [
+                TextField(),
+                SimpleDialogOption(
+                  onPressed: () {},
+                  child: const Text(
+                    'Enter',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
+            );
+          });
     }
 
     return Scaffold(
@@ -143,14 +94,15 @@ class _WaterScreenState extends State<WaterScreen> {
                         )),
               ),
               TextButton(
-                  onPressed: () {
-                    setState(() {
-                      waterTimes.add('23:00');
-                      todayTimes.add(false);
-                      yesterdayTimes.add(false);
-                      scheduleAlarms();
-                    });
-                  },
+                  onPressed: () => addNewTime(context),
+                  // () {
+                  //   _showDialog();
+                  //   setState(() {
+                  //     waterTimes.add('23:00');
+                  //     todayTimes.add(false);
+                  //     yesterdayTimes.add(false);
+                  //   });
+                  // },
                   child: Row(
                     children: const [
                       Icon(Icons.add_rounded),

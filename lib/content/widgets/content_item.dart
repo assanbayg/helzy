@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/content/screens/content_detail.dart';
 import 'package:provider/provider.dart';
 
 import 'package:helzy/providers/content.dart';
@@ -32,57 +33,67 @@ class _ContentBuyItemState extends State<ContentBuyItem> {
       }
     }
 
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      width: MediaQuery.of(context).size.width,
-      child: Row(
-        children: [
-          SizedBox(
-              height: 110, child: Image.asset('assets/images/content.png')),
-          const SizedBox(width: 20),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  content.title,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  children: [
-                    ElevatedButton(
-                        onPressed: buy,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.teal.shade200,
-                          fixedSize: const Size(130, 45),
-                        ),
-                        child: Row(
-                          children: [
-                            Image.asset('assets/images/heart-hands.png'),
-                            const Text('Helzy'),
-                          ],
-                        )),
-                    TextButton(
-                        onPressed: () {},
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(content.price > 0
-                                ? content.price.toString()
-                                : '0'),
-                            SizedBox(
-                              height: 20,
-                              child: Image.asset('assets/images/star.png'),
-                            ),
-                          ],
-                        )),
-                  ],
-                ),
-              ],
+    void check() {
+      if (content.price != 0) return;
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (BuildContext context) =>
+              ContentDetailScreen(index: widget.index)));
+    }
+
+    return GestureDetector(
+      onTap: check,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 10),
+        width: MediaQuery.of(context).size.width,
+        child: Row(
+          children: [
+            SizedBox(
+                height: 110, child: Image.asset('assets/images/content.png')),
+            const SizedBox(width: 20),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    content.title,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    children: [
+                      ElevatedButton(
+                          onPressed: buy,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.teal.shade200,
+                            fixedSize: const Size(130, 45),
+                          ),
+                          child: Row(
+                            children: [
+                              Image.asset('assets/images/heart-hands.png'),
+                              const Text('Helzy'),
+                            ],
+                          )),
+                      TextButton(
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(content.price > 0
+                                  ? content.price.toString()
+                                  : '0'),
+                              SizedBox(
+                                height: 20,
+                                child: Image.asset('assets/images/star.png'),
+                              ),
+                            ],
+                          )),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

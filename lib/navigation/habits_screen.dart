@@ -163,12 +163,12 @@ class HabitsScreen extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {},
                 child: Container(
-                  height: 160,
-                  width: 160,
+                  height: 170,
+                  width: 170,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Colors.indigo.shade300,
-                    borderRadius: BorderRadius.circular(80),
+                    color: const Color.fromRGBO(134, 132, 255, 1),
+                    borderRadius: BorderRadius.circular(85),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -184,9 +184,8 @@ class HabitsScreen extends StatelessWidget {
                       SizedBox(
                         width: 120,
                         child: Text(
-                          'Here is an information about the diet you are following',
+                          'Here is information about your emotions and feelings',
                           style: theme.textTheme.bodySmall,
-                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],
