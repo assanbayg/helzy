@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA0KrYOL5kHy6mjIfaoyB9Ha9YYaffqf5g',
-    appId: '1:487519844405:android:bac432dab9b5f6232c997c',
-    messagingSenderId: '487519844405',
-    projectId: 'helzy-380506',
-    storageBucket: 'helzy-380506.appspot.com',
+    apiKey: 'AIzaSyA1KXiuX2E8Xq0-4429DpH2_6VIFz-h0BI',
+    appId: '1:530944704828:android:d9fca10c447e107f0f5e39',
+    messagingSenderId: '530944704828',
+    projectId: 'helzy-1',
+    storageBucket: 'helzy-1.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCBJ584PqmDz67mMkNFfpspmR__L4kdfWc',
-    appId: '1:487519844405:ios:39174e05b486eaf42c997c',
-    messagingSenderId: '487519844405',
-    projectId: 'helzy-380506',
-    storageBucket: 'helzy-380506.appspot.com',
-    iosClientId: '487519844405-6lmf56hp82gjo3gqvcanjibo6qkun0r2.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCMU0f9ksGEThSjHJsqJ5x9TH00K8TKYpE',
+    appId: '1:530944704828:ios:8839bee8d85612b20f5e39',
+    messagingSenderId: '530944704828',
+    projectId: 'helzy-1',
+    storageBucket: 'helzy-1.appspot.com',
+    iosClientId: '530944704828-251njfcvk5k190pfmiteeu31an3kardo.apps.googleusercontent.com',
     iosBundleId: 'com.example.helzy',
   );
 }

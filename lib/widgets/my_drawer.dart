@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -10,13 +11,18 @@ class MyDrawer extends StatelessWidget {
           title,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
-        leading: Icon(icon, size: 36),
+        leading: Icon(
+          icon,
+          size: 36,
+          color: Colors.white,
+        ),
         onTap: tapHandler,
       );
     }
 
     return SafeArea(
       child: Drawer(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         width: MediaQuery.of(context).size.width * 0.75,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -31,7 +37,11 @@ class MyDrawer extends StatelessWidget {
             () {},
           ),
           const Divider(thickness: 2),
-          buildListTile('Settings', Icons.settings_rounded, () => null)
+          buildListTile('Settings', Icons.settings_rounded, () => null),
+          buildListTile('Sign out', Icons.exit_to_app_rounded, () async {
+            await FirebaseAuth.instance.signOut();
+            Navigator.of(context).pushNamed('/');
+          }),
         ]),
       ),
     );

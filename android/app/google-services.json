@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "487519844405",
-    "project_id": "helzy-380506",
-    "storage_bucket": "helzy-380506.appspot.com"
+    "project_number": "530944704828",
+    "project_id": "helzy-1",
+    "storage_bucket": "helzy-1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:487519844405:android:bac432dab9b5f6232c997c",
+        "mobilesdk_app_id": "1:530944704828:android:d9fca10c447e107f0f5e39",
         "android_client_info": {
           "package_name": "com.example.helzy"
         }
       },
       "oauth_client": [
         {
-          "client_id": "487519844405-4bvoldjc21pktu4n3cpv4ihrjlakka95.apps.googleusercontent.com",
+          "client_id": "530944704828-l2j8vip84cp8pt4adg2hoombo5m4llrc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA0KrYOL5kHy6mjIfaoyB9Ha9YYaffqf5g"
+          "current_key": "AIzaSyA1KXiuX2E8Xq0-4429DpH2_6VIFz-h0BI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "487519844405-4bvoldjc21pktu4n3cpv4ihrjlakka95.apps.googleusercontent.com",
+              "client_id": "530944704828-l2j8vip84cp8pt4adg2hoombo5m4llrc.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "487519844405-6lmf56hp82gjo3gqvcanjibo6qkun0r2.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.helzy"
-              }
             }
           ]
         }

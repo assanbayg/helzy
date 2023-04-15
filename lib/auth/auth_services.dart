@@ -1,9 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
+  final db = FirebaseFirestore.instance;
   Future<String?> register({
     required String email,
     required String password,
+    required String name,
+    required String surname,
+    required String dateOfBirth,
   }) async {
     try {
       final credential =
@@ -11,6 +16,13 @@ class AuthService {
         email: email,
         password: password,
       );
+      await db.collection('users').add({
+        'name': name,
+        'surname': surname,
+        'dateOfBirth': dateOfBirth,
+      }).then((DocumentReference doc) {
+        print('DocumentSnapshot added with ID: ${doc.id}');
+      });
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         return 'The password provided is too weak.';
