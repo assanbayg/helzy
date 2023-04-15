@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'auth_services.dart';
@@ -93,11 +95,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   TextField(
                     controller: _passwordController,
                     style: theme.textTheme.bodyMedium,
+                    obscureText: true,
+                    enableSuggestions: false,
+                    autocorrect: false,
                   ),
                   const SizedBox(height: 20),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'Date of birth: ',
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
@@ -105,43 +110,44 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       TextButton(
-                          onPressed: () async {
-                            DateTime? pickedDate = await showDatePicker(
-                              context: context,
-                              builder: (context, child) {
-                                return Theme(
-                                  data: Theme.of(context).copyWith(
-                                    colorScheme: ColorScheme.light(
-                                      primary: theme.primaryColor,
-                                      onPrimary: Colors.white,
-                                      onSurface: theme.primaryColor,
-                                    ),
-                                    textButtonTheme: TextButtonThemeData(
-                                      style: TextButton.styleFrom(
-                                        foregroundColor: Colors.red,
-                                      ),
+                        onPressed: () async {
+                          DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            builder: (context, child) {
+                              return Theme(
+                                data: Theme.of(context).copyWith(
+                                  colorScheme: ColorScheme.light(
+                                    primary: theme.primaryColor,
+                                    onPrimary: Colors.white,
+                                    onSurface: theme.primaryColor,
+                                  ),
+                                  textButtonTheme: TextButtonThemeData(
+                                    style: TextButton.styleFrom(
+                                      foregroundColor: Colors.red,
                                     ),
                                   ),
-                                  child: child!,
-                                );
-                              },
-                              initialDate: DateTime.now(),
-                              firstDate: DateTime(1950),
-                              lastDate: DateTime.now(),
-                            );
+                                ),
+                                child: child!,
+                              );
+                            },
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(1950),
+                            lastDate: DateTime.now(),
+                          );
 
-                            if (pickedDate != null) {
-                              String formattedDate =
-                                  DateFormat('yyyy-MM-dd').format(pickedDate);
-                              print(formattedDate);
-                              setState(() {
-                                _dateInput.text = formattedDate;
-                              });
-                            } else {}
-                          },
-                          child: Text(_dateInput.text == ""
-                              ? 'DD/MM/YYYY'
-                              : _dateInput.text)),
+                          if (pickedDate != null) {
+                            String formattedDate =
+                                DateFormat('yyyy-MM-dd').format(pickedDate);
+                            print(formattedDate);
+                            setState(() {
+                              _dateInput.text = formattedDate;
+                            });
+                          } else {}
+                        },
+                        child: Text(_dateInput.text == ""
+                            ? 'DD/MM/YYYY'
+                            : _dateInput.text),
+                      ),
                     ],
                   ),
                 ],

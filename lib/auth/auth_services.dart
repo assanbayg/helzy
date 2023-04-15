@@ -1,8 +1,11 @@
+// ignore_for_file: avoid_print
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
   final db = FirebaseFirestore.instance;
+
   Future<String?> register({
     required String email,
     required String password,
@@ -16,22 +19,25 @@ class AuthService {
         email: email,
         password: password,
       );
-      await db.collection('users').add({
+      final userReference =
+          db.collection('users').doc(FirebaseAuth.instance.currentUser!.uid);
+      await userReference.set({
         'name': name,
         'surname': surname,
         'dateOfBirth': dateOfBirth,
-      }).then((DocumentReference doc) {
-        print('DocumentSnapshot added with ID: ${doc.id}');
       });
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         return 'The password provided is too weak.';
       } else if (e.code == 'email-already-in-use') {
         return 'The account already exists for that email.';
+      } else {
+        return e.message ?? 'An unknown error occurred.';
       }
     } catch (e) {
       return e.toString();
     }
+    return 'Created a new account';
   }
 
   Future<String?> login({
@@ -41,6 +47,13 @@ class AuthService {
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+
+      User? currentUser = FirebaseAuth.instance.currentUser;
+      DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(currentUser!.uid)
+          .get();
+      //return userSnapshot.data();
       return 'Success';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

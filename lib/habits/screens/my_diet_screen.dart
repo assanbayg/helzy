@@ -55,7 +55,7 @@ class MyDietScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Text(
+                        const Text(
                           '200 kcal',
                           style: TextStyle(color: Colors.black),
                         ),
@@ -76,7 +76,7 @@ class MyDietScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Text(
+                        const Text(
                           '34 kcal',
                           style: TextStyle(color: Colors.black),
                         )
@@ -122,7 +122,7 @@ class MyDietScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Text(
+                        const Text(
                           '260 kcal',
                           style: TextStyle(color: Colors.black),
                         ),
@@ -143,7 +143,7 @@ class MyDietScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Text(
+                        const Text(
                           '104 kcal',
                           style: TextStyle(color: Colors.black),
                         )
@@ -183,7 +183,7 @@ class MyDietScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
               ]),
@@ -236,7 +236,7 @@ class FoodCard extends StatelessWidget {
                     children: [
                       Text(
                         food.keys.iterator.current,
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                       ),
                     ],
                   );

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'auth_services.dart';
 import '../navigation_bar.dart';
@@ -44,14 +46,31 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Text('Please sign in!', style: theme.textTheme.headlineSmall),
                   const SizedBox(height: 20),
-                  const Text('E-mail'),
+                  const Text(
+                    'E-mail',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18,
+                    ),
+                  ),
                   TextField(
                     controller: _emailController,
+                    style: const TextStyle(color: Colors.white),
                   ),
                   const SizedBox(height: 10),
-                  const Text('Password'),
+                  const Text(
+                    'Password',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18,
+                    ),
+                  ),
                   TextField(
+                    style: const TextStyle(color: Colors.white),
                     controller: _passwordController,
+                    obscureText: true,
+                    enableSuggestions: false,
+                    autocorrect: false,
                   ),
                 ],
               ),

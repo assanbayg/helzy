@@ -1,8 +1,34 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class MyDrawer extends StatelessWidget {
+class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
+
+  @override
+  State<MyDrawer> createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
+  String? _userName;
+
+  @override
+  void initState() {
+    super.initState();
+    loadUserData();
+  }
+
+  Future<void> loadUserData() async {
+    User? currentUser = FirebaseAuth.instance.currentUser;
+    DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(currentUser!.uid)
+        .get();
+    setState(() {
+      _userName = userSnapshot.get('name');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget buildListTile(String title, IconData icon, Function()? tapHandler) {
@@ -32,7 +58,7 @@ class MyDrawer extends StatelessWidget {
         ),
         child: Column(children: [
           buildListTile(
-            'User',
+            _userName!,
             Icons.account_circle_rounded,
             () {},
           ),
@@ -40,6 +66,7 @@ class MyDrawer extends StatelessWidget {
           buildListTile('Settings', Icons.settings_rounded, () => null),
           buildListTile('Sign out', Icons.exit_to_app_rounded, () async {
             await FirebaseAuth.instance.signOut();
+            // ignore: use_build_context_synchronously
             Navigator.of(context).pushNamed('/');
           }),
         ]),

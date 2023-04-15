@@ -5,6 +5,7 @@ import '../../providers/helzy_star.dart';
 import '../../providers/video.dart';
 import '../screens/meditation_detail.dart';
 
+// ignore: must_be_immutable
 class VideoItem extends StatefulWidget {
   int index;
   VideoItem({super.key, required this.index});

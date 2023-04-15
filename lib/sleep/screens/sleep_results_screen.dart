@@ -77,7 +77,7 @@ class _SleepResultsScreenState extends State<SleepResultsScreen> {
                     ),
                     ElevatedButton(
                         onPressed: () {},
-                        child: Text(
+                        child: const Text(
                           'Add time',
                           style: TextStyle(color: Colors.black),
                         )),

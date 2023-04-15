@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:helzy/plans/screens/notifications_screen.dart';
 import 'package:helzy/plans/screens/treatment_screen.dart';
@@ -58,21 +60,21 @@ class _PlansScreenState extends State<PlansScreen> {
               },
             ),
             Container(
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Row(children: [
-                Icon(
+                const Icon(
                   Icons.account_circle_rounded,
                   size: 40,
                   color: Colors.grey,
                 ),
-                SizedBox(width: 15),
+                const SizedBox(width: 15),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text('Dr. Adele Bekmukhatova',
                         style: TextStyle(
                           color: Colors.black,
@@ -86,9 +88,9 @@ class _PlansScreenState extends State<PlansScreen> {
                 )
               ]),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
@@ -99,10 +101,10 @@ class _PlansScreenState extends State<PlansScreen> {
                   size: 40,
                   color: Colors.blue.shade100,
                 ),
-                SizedBox(width: 15),
+                const SizedBox(width: 15),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text('Dr. Aidar Muslimkhan',
                         style: TextStyle(
                           color: Colors.black,

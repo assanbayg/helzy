@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
@@ -5,14 +7,14 @@ import 'package:helzy/widgets/my_app_bar.dart';
 class AddFilesToFolderScreen extends StatefulWidget {
   final String folderName;
 
-  AddFilesToFolderScreen({required this.folderName});
+  const AddFilesToFolderScreen({super.key, required this.folderName});
 
   @override
   _AddFilesToFolderScreenState createState() => _AddFilesToFolderScreenState();
 }
 
 class _AddFilesToFolderScreenState extends State<AddFilesToFolderScreen> {
-  List<String> _files = [];
+  final List<String> _files = [];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class _AddFilesToFolderScreenState extends State<AddFilesToFolderScreen> {
             ),
             TextButton(
               child: Row(
-                children: [
+                children: const [
                   Icon(Icons.add_rounded),
                   Text('Add'),
                 ],

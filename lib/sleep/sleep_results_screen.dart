@@ -81,14 +81,14 @@ class _SleepResultsScreenState extends State<SleepResultsScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
                       return SimpleDialog(
-                        title: Text('Today I slept... hours'),
+                        title: const Text('Today I slept... hours'),
                         children: [
                           SimpleDialogOption(
                             child: TextField(
@@ -109,7 +109,7 @@ class _SleepResultsScreenState extends State<SleepResultsScreen> {
                     },
                   );
                 },
-                child: Text('Add'),
+                child: const Text('Add'),
               ),
             ],
           ),

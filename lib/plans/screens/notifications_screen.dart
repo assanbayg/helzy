@@ -1,7 +1,7 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
-import 'dart:async';
-import 'package:intl/intl.dart';
 
 class NotificationsScreen extends StatefulWidget {
   static const routeName = '/plans/notifications';
@@ -12,12 +12,11 @@ class NotificationsScreen extends StatefulWidget {
 }
 
 class _NotificationsScreenState extends State<NotificationsScreen> {
-  DateTime _selectedDate = DateTime.now();
-  Map<DateTime, List<dynamic>> _events = {};
+  final DateTime _selectedDate = DateTime.now();
+  final Map<DateTime, List<dynamic>> _events = {};
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
     MediaQueryData mediaQuery = MediaQuery.of(context);
 
     return Scaffold(
@@ -43,11 +42,11 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     onDateChanged: (date) {},
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.max,
-                  children: [
+                  children: const [
                     Text(
                       'Choose Day:  ',
                       style: TextStyle(fontSize: 18),
@@ -64,7 +63,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.max,
-                  children: [
+                  children: const [
                     Text(
                       'Choose Time:  ',
                       style: TextStyle(fontSize: 18),
@@ -78,10 +77,10 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Center(
-                    child:
-                        ElevatedButton(onPressed: () {}, child: Text('Save')))
+                    child: ElevatedButton(
+                        onPressed: () {}, child: const Text('Save')))
               ],
             ),
           ],

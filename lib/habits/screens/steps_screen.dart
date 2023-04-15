@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
 
 class StepsScreen extends StatelessWidget {
@@ -48,7 +46,7 @@ class StepsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,13 +56,13 @@ class StepsScreen extends StatelessWidget {
                     Container(
                         width: 60,
                         height: 60,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Color.fromRGBO(188, 228, 220, 1),
                         ),
                         child: Image.asset('assets/images/time.png')),
-                    SizedBox(height: 10),
-                    Text('0h 47 min')
+                    const SizedBox(height: 10),
+                    const Text('0h 47 min')
                   ],
                 ),
                 Column(
@@ -72,14 +70,14 @@ class StepsScreen extends StatelessWidget {
                     Container(
                       width: 60,
                       height: 60,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Color.fromRGBO(188, 228, 220, 1),
                       ),
                       child: Image.asset('assets/images/fire.png'),
                     ),
-                    SizedBox(height: 10),
-                    Text('75 kcal')
+                    const SizedBox(height: 10),
+                    const Text('75 kcal')
                   ],
                 ),
                 Column(
@@ -87,27 +85,27 @@ class StepsScreen extends StatelessWidget {
                     Container(
                       width: 60,
                       height: 60,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Color.fromRGBO(188, 228, 220, 1),
                       ),
                       child: Image.asset('assets/images/location.png'),
                     ),
-                    SizedBox(height: 10),
-                    Text('1.05 km')
+                    const SizedBox(height: 10),
+                    const Text('1.05 km')
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Week', style: theme.textTheme.headlineSmall),
-                Text('Total steps: 16 874\nAverage: 5410'),
-                SizedBox(height: 20),
+                const Text('Total steps: 16 874\nAverage: 5410'),
+                const SizedBox(height: 20),
                 Text('Month', style: theme.textTheme.headlineSmall),
-                Text('Total steps: 71 931\nAverage: 3521'),
+                const Text('Total steps: 71 931\nAverage: 3521'),
               ],
             ),
           ],

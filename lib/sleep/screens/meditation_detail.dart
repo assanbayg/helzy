@@ -37,11 +37,11 @@ class MeditationDetailScreen extends StatelessWidget {
                     color: Colors.red.shade400,
                     size: 40,
                   ),
-                  Text('Like'),
+                  const Text('Like'),
                 ],
               ),
               Row(
-                children: [
+                children: const [
                   Text('Write your opinion about this video!'),
                 ],
               ),
@@ -66,7 +66,7 @@ class MeditationDetailScreen extends StatelessWidget {
                               shape: BoxShape.circle,
                               color: Colors.blueGrey.shade400),
                         ),
-                        Text('Comment...'),
+                        const Text('Comment...'),
                       ],
                     ),
                     Container(
@@ -76,7 +76,7 @@ class MeditationDetailScreen extends StatelessWidget {
                         color: Colors.red.shade400,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Icon(
+                      child: const Icon(
                         Icons.send,
                         color: Colors.white,
                       ),

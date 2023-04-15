@@ -18,7 +18,7 @@ class NavigationBarScreen extends StatefulWidget {
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
   var selectedIndex = 0;
   static List<Widget> screens = [
-    AnalysesScreen(),
+    const AnalysesScreen(),
     const SleepScreen(),
     const PlansScreen(),
     const HabitsScreen(),
@@ -37,7 +37,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[selectedIndex],
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       bottomNavigationBar: Container(
         height: 76,
         decoration: const BoxDecoration(

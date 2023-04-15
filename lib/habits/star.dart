@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class Star extends StatefulWidget {
   const Star({super.key});
@@ -20,12 +18,12 @@ class _StarState extends State<Star> {
         });
       },
       child: on == true
-          ? Icon(
+          ? const Icon(
               Icons.star_outline,
               size: 30,
               color: Colors.yellow,
             )
-          : Icon(
+          : const Icon(
               Icons.star,
               size: 50,
               color: Colors.yellow,

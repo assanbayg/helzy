@@ -64,7 +64,7 @@ class SleepScreen extends StatelessWidget {
                   height: 120,
                   width: 120,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.black,
                     shape: BoxShape.circle,
                   ),

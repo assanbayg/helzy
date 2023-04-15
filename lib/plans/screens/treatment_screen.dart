@@ -28,7 +28,7 @@ class Treatment extends StatelessWidget {
                   Row(
                     children: [
                       Image.asset('assets/images/treatment.png'),
-                      Text(
+                      const Text(
                         'Write your\ntreatment',
                         style: TextStyle(
                             color: Colors.black,
@@ -40,7 +40,7 @@ class Treatment extends StatelessWidget {
                   TextFormField(),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 400,
               ),
               Row(
@@ -48,7 +48,7 @@ class Treatment extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Save',
                       style: TextStyle(color: Colors.grey),
                     ),

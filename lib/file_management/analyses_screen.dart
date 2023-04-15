@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
@@ -6,12 +8,14 @@ import 'folder_screen.dart';
 import 'create_folder.dart';
 
 class AnalysesScreen extends StatefulWidget {
+  const AnalysesScreen({super.key});
+
   @override
   _AnalysesScreenScreenState createState() => _AnalysesScreenScreenState();
 }
 
 class _AnalysesScreenScreenState extends State<AnalysesScreen> {
-  List<String> _folders = ['Blood analyses'];
+  final List<String> _folders = ['Blood analyses'];
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,7 @@ class _AnalysesScreenScreenState extends State<AnalysesScreen> {
               final result = await showModalBottomSheet(
                 context: context,
                 builder: (BuildContext context) {
-                  return Container(
+                  return SizedBox(
                     height: 200.0,
                     child: Column(
                       children: <Widget>[
@@ -34,14 +38,14 @@ class _AnalysesScreenScreenState extends State<AnalysesScreen> {
                               height: 30,
                               child:
                                   Image.asset('assets/images/folder_icon.png')),
-                          title: Text('Create folder'),
+                          title: const Text('Create folder'),
                           onTap: () {
                             Navigator.pop(context, 'create_folder');
                           },
                         ),
                         ListTile(
-                          leading: Icon(Icons.attach_file),
-                          title: Text('Add single file'),
+                          leading: const Icon(Icons.attach_file),
+                          title: const Text('Add single file'),
                           onTap: () {
                             Navigator.pop(context, 'add_single_file');
                           },
@@ -55,7 +59,7 @@ class _AnalysesScreenScreenState extends State<AnalysesScreen> {
                 final folderName = await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CreateFolderScreen(),
+                    builder: (context) => const CreateFolderScreen(),
                   ),
                 );
                 if (folderName != null) {
@@ -73,7 +77,7 @@ class _AnalysesScreenScreenState extends State<AnalysesScreen> {
               }
             },
             child: Row(
-              children: [
+              children: const [
                 Icon(Icons.add_rounded),
                 Text('Create'),
               ],

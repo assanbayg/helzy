@@ -24,13 +24,13 @@ class DiaryCard extends StatelessWidget {
                 title,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-              TextField(),
-              SizedBox(
+              const TextField(),
+              const SizedBox(
                 height: 20,
               ),
               TextButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Save',
                     style: TextStyle(color: Colors.grey),
                   ))

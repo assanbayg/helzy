@@ -7,7 +7,7 @@ import 'package:helzy/providers/helzy_star.dart';
 
 class ContentBuyItem extends StatefulWidget {
   final int index;
-  ContentBuyItem({super.key, required this.index});
+  const ContentBuyItem({super.key, required this.index});
 
   @override
   State<ContentBuyItem> createState() => _ContentBuyItemState();

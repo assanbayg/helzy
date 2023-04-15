@@ -25,7 +25,7 @@ class _WaterScreenState extends State<WaterScreen> {
             return SimpleDialog(
               title: const Text('Add a new time'),
               children: [
-                TextField(),
+                const TextField(),
                 SimpleDialogOption(
                   onPressed: () {},
                   child: const Text(

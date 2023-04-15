@@ -1,7 +1,10 @@
+// ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 
 class CreateFolderScreen extends StatefulWidget {
+  const CreateFolderScreen({super.key});
+
   @override
   _CreateFolderScreenState createState() => _CreateFolderScreenState();
 }
@@ -20,10 +23,10 @@ class _CreateFolderScreenState extends State<CreateFolderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Create folder'),
+        title: const Text('Create folder'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -31,7 +34,7 @@ class _CreateFolderScreenState extends State<CreateFolderScreen> {
             children: <Widget>[
               TextFormField(
                 controller: _folderNameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Folder name',
                 ),
                 validator: (value) {
@@ -41,9 +44,9 @@ class _CreateFolderScreenState extends State<CreateFolderScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               ElevatedButton(
-                child: Text('Create'),
+                child: const Text('Create'),
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     Navigator.pop(context, _folderNameController.text);

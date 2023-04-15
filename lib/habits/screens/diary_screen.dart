@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:helzy/habits/widgets/diary_card.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
 
 import '../star.dart';
@@ -35,17 +34,17 @@ class DiaryScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Rate your mood',
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Star(),
                           Star(),
                           Star(),
@@ -70,21 +69,21 @@ class DiaryScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'What good things happened today?',
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      TextField(),
-                      SizedBox(height: 20),
+                      const TextField(),
+                      const SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           TextButton(
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 'Save',
                                 style: TextStyle(color: Colors.grey),
                               ))
@@ -107,21 +106,21 @@ class DiaryScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'What bad things happened today?',
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      TextField(),
-                      SizedBox(height: 20),
+                      const TextField(),
+                      const SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           TextButton(
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 'Save',
                                 style: TextStyle(color: Colors.grey),
                               ))
@@ -144,21 +143,21 @@ class DiaryScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Conclusions',
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      TextField(),
-                      SizedBox(height: 20),
+                      const TextField(),
+                      const SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           TextButton(
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 'Save',
                                 style: TextStyle(color: Colors.grey),
                               ))
