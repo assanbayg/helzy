@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/my_drawer.dart';
 
 import 'navigation/sleep_screen.dart';
 import 'navigation/plans_screen.dart';
@@ -18,10 +19,10 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   var selectedIndex = 0;
   static List<Widget> screens = [
     AnalysesScreen(),
-    SleepScreen(),
-    PlansScreen(),
-    HabitsScreen(),
-    ContentScreen(),
+    const SleepScreen(),
+    const PlansScreen(),
+    const HabitsScreen(),
+    const ContentScreen(),
   ];
 
   Widget buildIcon(String icon) {
@@ -36,6 +37,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[selectedIndex],
+      drawer: MyDrawer(),
       bottomNavigationBar: Container(
         height: 76,
         decoration: const BoxDecoration(

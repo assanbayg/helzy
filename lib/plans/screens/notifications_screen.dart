@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
-import 'package:table_calendar/table_calendar.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
 
@@ -14,8 +12,6 @@ class NotificationsScreen extends StatefulWidget {
 }
 
 class _NotificationsScreenState extends State<NotificationsScreen> {
-  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
   DateTime _selectedDate = DateTime.now();
   Map<DateTime, List<dynamic>> _events = {};
 

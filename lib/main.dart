@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:helzy/habits/screens/diary_screen.dart';
-import 'package:helzy/plans/screens/treatment_screen.dart';
 import 'package:provider/provider.dart';
-import 'habits/screens/steps_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'theme.dart';
 
 import 'navigation_bar.dart';
@@ -22,11 +21,14 @@ import 'navigation/analyse_screen.dart';
 import 'navigation/habits_screen.dart';
 import 'habits/screens/water_screen.dart';
 import 'habits/screens/my_diet_screen.dart';
+import 'habits/screens/diary_screen.dart';
+import 'habits/screens/steps_screen.dart';
 
 import 'navigation/content_screen.dart';
 
 import 'navigation/plans_screen.dart';
 import 'plans/screens/notifications_screen.dart';
+import 'plans/screens/treatment_screen.dart';
 
 import 'navigation/sleep_screen.dart';
 import 'sleep/screens/my_stars_screen.dart';
@@ -34,8 +36,12 @@ import 'sleep/sleep_results_screen.dart';
 import 'sleep/screens/good_night_screen.dart';
 import 'sleep/screens/meditation.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

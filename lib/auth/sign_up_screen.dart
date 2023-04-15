@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'auth_services.dart';
 import 'policy_screen.dart';
 import '../widgets/logo_title.dart';
 
@@ -12,6 +12,8 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -47,23 +49,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const TextField(),
                   const SizedBox(height: 10),
                   const Text('E-mail'),
-                  const TextField(),
+                  TextField(
+                    controller: _emailController,
+                  ),
                   const SizedBox(height: 10),
                   const Text('Password'),
-                  const TextField(),
+                  TextField(
+                    controller: _passwordController,
+                  ),
                   const SizedBox(height: 20),
-                  TextButton(
-                      onPressed: () {
-                        DatePicker.showDatePicker(context,
-                            showTitleActions: true,
-                            minTime: DateTime(1923, 1, 1),
-                            maxTime: DateTime.now(),
-                            onChanged: (date) {},
-                            onConfirm: (date) {},
-                            currentTime: DateTime.now(),
-                            locale: LocaleType.en);
-                      },
-                      child: const Text('YY/MM/DD')),
+                  TextButton(onPressed: () {}, child: const Text('YY/MM/DD')),
                 ],
               ),
             ),
@@ -71,7 +66,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: theme.primaryColor,
-          onPressed: () => Navigator.pushNamed(context, PolicyScreen.routeName),
+          onPressed: () async {
+            final message = await AuthService().register(
+              email: _emailController.text,
+              password: _passwordController.text,
+            );
+            if (message!.contains('Success')) {
+              Navigator.pushNamed(context, PolicyScreen.routeName);
+            }
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(message),
+              ),
+            );
+          },
           child: const Icon(
             Icons.arrow_forward_rounded,
           ),

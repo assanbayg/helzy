@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "487519844405",
+    "project_id": "helzy-380506",
+    "storage_bucket": "helzy-380506.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487519844405:android:bac432dab9b5f6232c997c",
+        "android_client_info": {
+          "package_name": "com.example.helzy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487519844405-4bvoldjc21pktu4n3cpv4ihrjlakka95.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0KrYOL5kHy6mjIfaoyB9Ha9YYaffqf5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "487519844405-4bvoldjc21pktu4n3cpv4ihrjlakka95.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "487519844405-6lmf56hp82gjo3gqvcanjibo6qkun0r2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.helzy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
