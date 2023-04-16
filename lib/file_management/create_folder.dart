@@ -23,6 +23,7 @@ class _CreateFolderScreenState extends State<CreateFolderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
         title: const Text('Create folder'),
       ),
       body: Padding(
@@ -34,8 +35,15 @@ class _CreateFolderScreenState extends State<CreateFolderScreen> {
             children: <Widget>[
               TextFormField(
                 controller: _folderNameController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Folder name',
+                  labelStyle: const TextStyle(color: Colors.white),
+                  border: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white)),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Theme.of(context).primaryColor),
+                  ),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {

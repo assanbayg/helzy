@@ -67,7 +67,7 @@ class _SleepResultsScreenState extends State<SleepResultsScreen> {
                       ),
                     ),
                     Text(
-                      'Today: ${sleepHours[DateTime.now().weekday].floor()}h ${((sleepHours[DateTime.now().weekday] - sleepHours[DateTime.now().weekday]) * 60).round()}min.',
+                      'Today: ${sleepHours[DateTime.now().weekday - 1].floor()}h ${((sleepHours[DateTime.now().weekday - 1] - sleepHours[DateTime.now().weekday - 1]) * 60).round()}min.',
                       style: const TextStyle(
                         color: Colors.black,
                       ),

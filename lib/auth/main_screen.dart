@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../langs/app_localizations.dart';
 import 'login_screen.dart';
 import 'sign_up_screen.dart';
 
@@ -19,7 +20,7 @@ class MainScreen extends StatelessWidget {
               children: [
                 Text('Helzy', style: theme.textTheme.headlineLarge),
                 Text(
-                  'Stay Helzy with us!',
+                  AppLocalizations.of(context)!.translate('motto')!,
                   style: theme.textTheme.headlineSmall,
                 ),
                 SizedBox(

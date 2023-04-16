@@ -43,13 +43,13 @@ class _AnalysesScreenScreenState extends State<AnalysesScreen> {
                             Navigator.pop(context, 'create_folder');
                           },
                         ),
-                        ListTile(
-                          leading: const Icon(Icons.attach_file),
-                          title: const Text('Add single file'),
-                          onTap: () {
-                            Navigator.pop(context, 'add_single_file');
-                          },
-                        ),
+                        // ListTile(
+                        //   leading: const Icon(Icons.attach_file),
+                        //   title: const Text('Add single file'),
+                        //   onTap: () {
+                        //     Navigator.pop(context, 'add_single_file');
+                        //   },
+                        // ),
                       ],
                     ),
                   );

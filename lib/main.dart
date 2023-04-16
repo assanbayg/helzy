@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'langs/app_localizations.dart';
 import 'theme.dart';
 
 import 'navigation_bar.dart';
@@ -58,8 +60,18 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Helzy',
         theme: basisTheme(),
+        localizationsDelegates: [
+          AppLocalizationsDelegate(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en', 'UK'),
+          Locale('ru', 'RU'),
+          Locale('kk', 'KK'),
+        ],
         home: const MainScreen(),
         initialRoute: '/',
         routes: {

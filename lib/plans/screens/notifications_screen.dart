@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
+import 'package:intl/intl.dart';
 
 class NotificationsScreen extends StatefulWidget {
   static const routeName = '/plans/notifications';
@@ -12,8 +13,18 @@ class NotificationsScreen extends StatefulWidget {
 }
 
 class _NotificationsScreenState extends State<NotificationsScreen> {
-  final DateTime _selectedDate = DateTime.now();
+  DateTime _selectedDate = DateTime.now();
+  String _chosenTime = DateFormat('HH:mm').format(DateTime.now());
   final Map<DateTime, List<dynamic>> _events = {};
+  final List<String> weekdays = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -39,20 +50,24 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     initialDate: DateTime.now(),
                     firstDate: DateTime(1923, 1, 1),
                     lastDate: DateTime.now(),
-                    onDateChanged: (date) {},
+                    onDateChanged: (date) {
+                      setState(() {
+                        _selectedDate = date;
+                      });
+                    },
                   ),
                 ),
                 const SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.max,
-                  children: const [
+                  children: [
                     Text(
                       'Choose Day:  ',
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      'Every Wednesday',
+                      'Every ${weekdays[_selectedDate.weekday - 1]}',
                       style: TextStyle(
                           decoration: TextDecoration.underline,
                           fontWeight: FontWeight.w700,
@@ -63,13 +78,13 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.max,
-                  children: const [
+                  children: [
                     Text(
                       'Choose Time:  ',
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      '17:00',
+                      _chosenTime,
                       style: TextStyle(
                           decoration: TextDecoration.underline,
                           fontWeight: FontWeight.w700,
@@ -80,7 +95,24 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                 const SizedBox(height: 30),
                 Center(
                     child: ElevatedButton(
-                        onPressed: () {}, child: const Text('Save')))
+                  onPressed: () async {
+                    TimeOfDay pickedTime = await showTimePicker(
+                      initialTime: TimeOfDay.now(),
+                      context: context,
+                    ) as TimeOfDay;
+
+                    if (pickedTime != null) {
+                      DateTime parsedTime = DateFormat.jm()
+                          .parse(pickedTime.format(context).toString());
+                      String formattedTime =
+                          DateFormat('HH:mm:ss').format(parsedTime);
+                      setState(() {
+                        _chosenTime = formattedTime;
+                      });
+                    }
+                  },
+                  child: const Text('Save'),
+                ))
               ],
             ),
           ],
