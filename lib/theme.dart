@@ -4,7 +4,7 @@ const largeTextSize = 26;
 const mediumTextSize = 20;
 const smallTextSize = 16;
 
-const String fontNameDefault = 'Quicksand';
+const String fontNameDefault = 'Istok';
 const String fontNameTitle = '';
 
 ThemeData basisTheme() => ThemeData(

@@ -10,10 +10,14 @@ class AppLocalizations {
     'en': {
       'motto': 'Stay Helzy with us!',
       'hello': 'Hello, {name}!',
+      'start': 'Start',
+      'haveAccount': 'I have an account'
     },
     'kk': {
-      'motto': 'Қазақша',
+      'motto': 'Бізбен бірге дені сау болыңыз!',
       'hello': 'Сәлеметсіз бе, {name}!',
+      'start': 'Тіркелу',
+      'haveAccount': 'Менде аккаунт бар'
     },
     'ru': {
       'motto': 'На русском',

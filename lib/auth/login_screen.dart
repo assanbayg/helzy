@@ -1,9 +1,7 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:flutter/material.dart';
-import 'auth_services.dart';
-import '../navigation_bar.dart';
-import '../widgets/logo_title.dart';
+import 'package:helzy/auth/auth_services.dart';
+import 'package:helzy/navigation_bar.dart';
+import 'package:helzy/widgets/logo_title.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/login';
@@ -19,79 +17,69 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(children: [
-            Row(
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/');
-                  },
-                  icon: const Icon(Icons.west_rounded),
-                ),
-                const SizedBox(
-                  width: 55,
-                ),
-                const LogoTitle(),
-              ],
-            ),
-            const SizedBox(height: 100),
+    ThemeData theme = Theme.of(context);
+    Size size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: size.height * 0.1),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  const LogoTitle(),
+                  SizedBox(height: size.height * 0.025),
                   Text('Please sign in!', style: theme.textTheme.headlineSmall),
-                  const SizedBox(height: 20),
-                  const Text(
-                    'E-mail',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                    ),
+                  SizedBox(height: size.height * 0.05),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Email'),
+                      TextField(
+                        controller: _emailController,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ],
                   ),
-                  TextField(
-                    controller: _emailController,
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                  const SizedBox(height: 10),
-                  const Text(
-                    'Password',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                    ),
-                  ),
-                  TextField(
-                    style: const TextStyle(color: Colors.white),
-                    controller: _passwordController,
-                    obscureText: true,
-                    enableSuggestions: false,
-                    autocorrect: false,
+                  SizedBox(height: size.height * 0.025),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Password'),
+                      TextField(
+                        style: const TextStyle(color: Colors.white),
+                        controller: _passwordController,
+                        obscureText: true,
+                        enableSuggestions: false,
+                        autocorrect: false,
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 50),
+            SizedBox(height: size.height * 0.075),
             ElevatedButton(
               onPressed: () async {
+                final navigator = Navigator.of(context);
+                final scafMessenger = ScaffoldMessenger.of(context);
                 final message = await AuthService().login(
                   email: _emailController.text,
                   password: _passwordController.text,
                 );
+
                 if (message!.contains('Success')) {
-                  Navigator.of(context)
-                      .pushNamed(NavigationBarScreen.routeName);
+                  navigator.pushNamed(NavigationBarScreen.routeName);
                 }
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(SnackBar(content: Text(message)));
+                scafMessenger.showSnackBar(SnackBar(content: Text(message)));
               },
               child: const Text('Sign in'),
             ),
-          ]),
+          ],
         ),
       ),
     );

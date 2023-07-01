@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../langs/app_localizations.dart';
-import 'login_screen.dart';
-import 'sign_up_screen.dart';
+import 'package:helzy/langs/app_localizations.dart';
+//auth related imports
+import 'package:helzy/auth/login_screen.dart';
+import 'package:helzy/auth/sign_up_screen.dart';
 
 class MainScreen extends StatelessWidget {
   static const routeName = '/';
@@ -9,44 +10,41 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-    return SafeArea(
-      child: Scaffold(
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Helzy', style: theme.textTheme.headlineLarge),
-                Text(
-                  AppLocalizations.of(context)!.translate('motto')!,
-                  style: theme.textTheme.headlineSmall,
+    ThemeData theme = Theme.of(context);
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Helzy', style: theme.textTheme.headlineLarge),
+              Text(
+                AppLocalizations.of(context)!.translate('motto')!,
+                style: theme.textTheme.headlineSmall,
+              ),
+              SizedBox(
+                height: size.height * 0.2,
+                child: Image.asset('assets/images/heart-hands.png'),
+              ),
+              SizedBox(height: size.height * 0.025),
+              ElevatedButton(
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(SignUpScreen.routeName),
+                child: Text(AppLocalizations.of(context)!.translate('start')!),
+              ),
+              TextButton(
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(LoginScreen.routeName),
+                style: theme.textButtonTheme.style,
+                child: Text(
+                  AppLocalizations.of(context)!.translate('haveAccount')!,
                 ),
-                SizedBox(
-                  height: 200,
-                  child: Image.asset('assets/images/heart-hands.png'),
-                ),
-                const SizedBox(height: 15),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(SignUpScreen.routeName);
-                  },
-                  child: const Text('Start'),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(LoginScreen.routeName);
-                  },
-                  style: theme.textButtonTheme.style,
-                  child: const Text(
-                    'I have an account',
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

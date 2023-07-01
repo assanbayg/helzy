@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class MyAppBar extends StatelessWidget with PreferredSizeWidget {
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final ThemeData theme;
   final String title;
   String text;
@@ -49,7 +49,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   }
 }
 
-class ChildAppBar extends StatelessWidget with PreferredSizeWidget {
+class ChildAppBar extends StatelessWidget implements PreferredSizeWidget {
   ChildAppBar({super.key});
 
   @override
