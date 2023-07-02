@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/widgets/my_app_bar.dart';
+
+import 'package:helzy/widgets/star_floating_action_button.dart';
 import 'package:helzy/sleep/screens/good_night_screen.dart';
 import 'package:helzy/sleep/screens/meditation.dart';
-
-import '../sleep/sleep_results_screen.dart';
-import '../widgets/my_app_bar.dart';
-import '../widgets/star_floating_action_button.dart';
+import 'package:helzy/sleep/sleep_results_screen.dart';
 
 class SleepScreen extends StatelessWidget {
-  static const routeName = '/sleep';
+  static const routeName = '/nav-bar/sleep';
   const SleepScreen({super.key});
 
   @override
@@ -34,8 +34,7 @@ class SleepScreen extends StatelessWidget {
             ),
             Positioned(
               top: mediaQueryData.size.height * 0.25,
-              //top: 200,
-              right: 20,
+              right: mediaQueryData.size.height * 0.025,
               child: GestureDetector(
                 onTap: () =>
                     Navigator.pushNamed(context, SleepResultsScreen.routeName),
@@ -55,14 +54,14 @@ class SleepScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 120,
-              left: 100,
+              top: mediaQueryData.size.height * 0.125,
+              left: mediaQueryData.size.height * 0.1,
               child: GestureDetector(
                 onTap: () =>
                     Navigator.pushNamed(context, GoodNightScreen.routeName),
                 child: Container(
-                  height: 120,
-                  width: 120,
+                  height: mediaQueryData.size.height * 0.125,
+                  width: mediaQueryData.size.height * 0.125,
                   alignment: Alignment.center,
                   decoration: const BoxDecoration(
                     color: Colors.black,
@@ -78,12 +77,12 @@ class SleepScreen extends StatelessWidget {
             ),
             Positioned(
               bottom: mediaQueryData.size.width * 0.4,
-              left: 100,
+              left: mediaQueryData.size.height * 0.1,
               child: GestureDetector(
                 onTap: () => Navigator.pushNamed(context, Meditation.routeName),
                 child: Container(
-                  height: 90,
-                  width: 90,
+                  height: mediaQueryData.size.height * 0.1,
+                  width: mediaQueryData.size.height * 0.1,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.red.shade300,
@@ -91,7 +90,10 @@ class SleepScreen extends StatelessWidget {
                   ),
                   child: const Text(
                     'Meditation',
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ),

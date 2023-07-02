@@ -1,8 +1,8 @@
-// ignore_for_file: unused_element
-
 import 'package:flutter/material.dart';
 import 'package:helzy/plans/screens/notifications_screen.dart';
 import 'package:helzy/plans/screens/treatment_screen.dart';
+import 'package:helzy/plans/widgets/doctor_card.dart';
+import 'package:helzy/plans/widgets/plan_card.dart';
 import 'package:helzy/plans/widgets/plans_bms.dart';
 
 import '../widgets/my_app_bar.dart';
@@ -16,6 +16,12 @@ class PlansScreen extends StatefulWidget {
 }
 
 class _PlansScreenState extends State<PlansScreen> {
+  List<Map<String, String>> doctors = [
+    {'name': 'Adele Bekmukhanova', 'field': 'Dentistry'},
+    {'name': 'Aidar Muslimkhan', 'field': 'Neurology'},
+  ];
+
+  // ignore: unused_element
   void _showModalBottomSheet(String title) {
     showModalBottomSheet(
         backgroundColor: Colors.white,
@@ -34,13 +40,15 @@ class _PlansScreenState extends State<PlansScreen> {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: MyAppBar(
         theme: theme,
         title: 'My Plans',
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(size.height / 40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,174 +56,28 @@ class _PlansScreenState extends State<PlansScreen> {
             PlanCard(
               title: 'Treatment',
               editedText: 'edited last week',
-              onTap: () {
-                Navigator.pushNamed(context, Treatment.routeName);
-              },
+              onTap: () => Navigator.pushNamed(context, Treatment.routeName),
             ),
             PlanCard(
               title: 'Notifications',
               editedText: 'edited last week',
-              onTap: () {
-                Navigator.pushNamed(context, NotificationsScreen.routeName);
-              },
+              onTap: () =>
+                  Navigator.pushNamed(context, NotificationsScreen.routeName),
             ),
-            Container(
-              padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
+            SizedBox(
+              height: size.height / 5,
+              child: ListView.builder(
+                itemCount: doctors.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return DoctorCard(
+                    name: doctors[index]['name']!,
+                    field: doctors[index]['field']!,
+                  );
+                },
               ),
-              child: Row(children: [
-                const Icon(
-                  Icons.account_circle_rounded,
-                  size: 40,
-                  color: Colors.grey,
-                ),
-                const SizedBox(width: 15),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text('Dr. Adele Bekmukhatova',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w700,
-                        )),
-                    Text(
-                      'Dentist',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
-                )
-              ]),
-            ),
-            const SizedBox(height: 20),
-            Container(
-              padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Row(children: [
-                Icon(
-                  Icons.account_circle_rounded,
-                  size: 40,
-                  color: Colors.blue.shade100,
-                ),
-                const SizedBox(width: 15),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text('Dr. Aidar Muslimkhan',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w700,
-                        )),
-                    Text(
-                      'Neurology',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
-                )
-              ]),
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class PlanCard extends StatelessWidget {
-  final String title;
-  final String editedText;
-  final VoidCallback onTap;
-  const PlanCard({
-    super.key,
-    required this.title,
-    required this.editedText,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: SizedBox(
-        height: 220,
-        width: 250,
-        child: Stack(children: [
-          Positioned(
-            top: 50,
-            child: Container(
-              height: 160,
-              width: 230,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.cyan.shade200,
-                    Colors.red.shade200,
-                  ],
-                  begin: AlignmentDirectional.topCenter,
-                  end: AlignmentDirectional.bottomEnd,
-                ),
-              ),
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                height: 55,
-                width: 200,
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-                margin: const EdgeInsets.only(bottom: 10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.access_time_rounded,
-                          color: Colors.grey,
-                          size: 15,
-                        ),
-                        Text(
-                          editedText,
-                          style: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            child: Container(
-              height: 150,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.3),
-              ),
-              child: title == 'Treatment'
-                  ? Image.asset('assets/images/treatment.png')
-                  : Image.asset('assets/images/notifications.png'),
-            ),
-          ),
-        ]),
       ),
     );
   }

@@ -1,12 +1,10 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 
 class CreateFolderScreen extends StatefulWidget {
   const CreateFolderScreen({super.key});
 
   @override
-  _CreateFolderScreenState createState() => _CreateFolderScreenState();
+  State<CreateFolderScreen> createState() => _CreateFolderScreenState();
 }
 
 class _CreateFolderScreenState extends State<CreateFolderScreen> {
@@ -21,18 +19,21 @@ class _CreateFolderScreenState extends State<CreateFolderScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: theme.primaryColor,
         title: const Text('Create folder'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(size.height * 0.02),
         child: Form(
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
+            children: [
               TextFormField(
                 controller: _folderNameController,
                 decoration: InputDecoration(
@@ -41,8 +42,7 @@ class _CreateFolderScreenState extends State<CreateFolderScreen> {
                   border: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white)),
                   focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Theme.of(context).primaryColor),
+                    borderSide: BorderSide(color: theme.primaryColor),
                   ),
                 ),
                 validator: (value) {
@@ -52,7 +52,7 @@ class _CreateFolderScreenState extends State<CreateFolderScreen> {
                   return null;
                 },
               ),
-              const SizedBox(height: 16.0),
+              SizedBox(height: size.height * 0.02),
               ElevatedButton(
                 child: const Text('Create'),
                 onPressed: () {

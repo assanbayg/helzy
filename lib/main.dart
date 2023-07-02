@@ -72,8 +72,8 @@ class MyApp extends StatelessWidget {
           Locale('ru', 'RU'),
           Locale('kk', 'KK'),
         ],
-        home: const MainScreen(),
-        // home: const NavigationBarScreen(),
+        // home: const MainScreen(),
+        home: const NavigationBarScreen(),
         initialRoute: '/',
         routes: {
           NavigationBarScreen.routeName: (context) =>

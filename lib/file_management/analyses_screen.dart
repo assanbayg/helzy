@@ -1,25 +1,26 @@
-// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
 
-import 'folder_screen.dart';
-import 'create_folder.dart';
+import 'package:helzy/file_management/folder_screen.dart';
+import 'package:helzy/file_management/create_folder.dart'
+    show CreateFolderScreen;
 
 class AnalysesScreen extends StatefulWidget {
   const AnalysesScreen({super.key});
+  static const routeName = '/nav-bar/analyses';
 
   @override
-  _AnalysesScreenScreenState createState() => _AnalysesScreenScreenState();
+  State<AnalysesScreen> createState() => _AnalysesScreenState();
 }
 
-class _AnalysesScreenScreenState extends State<AnalysesScreen> {
-  final List<String> _folders = ['Blood analyses'];
+class _AnalysesScreenState extends State<AnalysesScreen> {
+  final List<String> _folders = [];
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: MyAppBar(theme: theme, title: 'My Analyses'),
       body: Column(
@@ -30,32 +31,30 @@ class _AnalysesScreenScreenState extends State<AnalysesScreen> {
                 context: context,
                 builder: (BuildContext context) {
                   return SizedBox(
-                    height: 200.0,
+                    height: size.height * 0.2,
                     child: Column(
                       children: <Widget>[
                         ListTile(
                           leading: SizedBox(
-                              height: 30,
-                              child:
-                                  Image.asset('assets/images/folder_icon.png')),
+                            height: size.height * 0.03,
+                            child: Image.asset('assets/images/folder_icon.png'),
+                          ),
                           title: const Text('Create folder'),
-                          onTap: () {
-                            Navigator.pop(context, 'create_folder');
-                          },
+                          onTap: () => Navigator.pop(context, 'create_folder'),
                         ),
-                        // ListTile(
-                        //   leading: const Icon(Icons.attach_file),
-                        //   title: const Text('Add single file'),
-                        //   onTap: () {
-                        //     Navigator.pop(context, 'add_single_file');
-                        //   },
-                        // ),
+                        ListTile(
+                          leading: const Icon(Icons.attach_file),
+                          title: const Text('Add single file'),
+                          onTap: () =>
+                              Navigator.pop(context, 'add_single_file'),
+                        ),
                       ],
                     ),
                   );
                 },
               );
               if (result == 'create_folder') {
+                // ignore: use_build_context_synchronously
                 final folderName = await Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -76,47 +75,56 @@ class _AnalysesScreenScreenState extends State<AnalysesScreen> {
                 }
               }
             },
-            child: Row(
-              children: const [
+            child: const Row(
+              children: [
                 Icon(Icons.add_rounded),
                 Text('Create'),
               ],
             ),
           ),
-          SizedBox(
-            height: 300,
-            child: ListView.builder(
-              itemCount: _folders.length,
-              itemBuilder: (BuildContext context, int index) {
-                return GestureDetector(
-                  onTap: () async {
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AddFilesToFolderScreen(
-                          folderName: _folders[index],
+          _folders.isEmpty
+              ? Text(
+                  'No folders created yet!\nClick + Create',
+                  style: theme.textTheme.headlineSmall,
+                  textAlign: TextAlign.center,
+                )
+              : SizedBox(
+                  height: size.height * 0.3,
+                  child: ListView.builder(
+                    itemCount: _folders.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () async {
+                          if (_folders.isEmpty) return;
+
+                          final result = await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AddFilesToFolderScreen(
+                                folderName: _folders[index],
+                              ),
+                            ),
+                          );
+                          if (result != null) {
+                            setState(() {
+                              _folders[index] = result;
+                            });
+                          }
+                        },
+                        child: ListTile(
+                          leading: SizedBox(
+                            height: size.height * 0.03,
+                            child: Image.asset('assets/images/folder_icon.png'),
+                          ),
+                          title: Text(
+                            _folders[index],
+                            style: theme.textTheme.bodyMedium,
+                          ),
                         ),
-                      ),
-                    );
-                    if (result != null) {
-                      setState(() {
-                        _folders[index] = result;
-                      });
-                    }
-                  },
-                  child: ListTile(
-                    leading: SizedBox(
-                        height: 30,
-                        child: Image.asset('assets/images/folder_icon.png')),
-                    title: Text(
-                      _folders[index],
-                      style: theme.textTheme.bodyMedium,
-                    ),
+                      );
+                    },
                   ),
-                );
-              },
-            ),
-          ),
+                ),
         ],
       ),
     );

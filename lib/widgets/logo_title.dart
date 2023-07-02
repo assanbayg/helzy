@@ -5,12 +5,16 @@ class LogoTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-            height: 80, child: Image.asset('assets/images/heart-hands.png')),
-        const SizedBox(width: 10),
+          height: size.height * 0.1,
+          child: Image.asset('assets/images/heart-hands.png'),
+        ),
+        SizedBox(width: size.width * 0.0125),
         Text(
           'Helzy',
           style: Theme.of(context).textTheme.headlineMedium,
