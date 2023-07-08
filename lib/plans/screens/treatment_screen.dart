@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
 
-class Treatment extends StatelessWidget {
+class TreatmentScreen extends StatelessWidget {
   static const routeName = 'plans/treatment';
-  const Treatment({super.key});
+  const TreatmentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: ChildAppBar(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: size.width / 20),
         child: Container(
-          padding: const EdgeInsets.all(15),
+          padding: EdgeInsets.all(size.height / 40),
           width: double.infinity,
-          height: MediaQuery.of(context).size.height * 0.8,
+          height: size.height * 0.8,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(30),
@@ -28,20 +30,20 @@ class Treatment extends StatelessWidget {
                   Row(
                     children: [
                       Image.asset('assets/images/treatment.png'),
-                      const Text(
+                      Text(
                         'Write your\ntreatment',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 24),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall!
+                            .copyWith(color: Colors.black),
                       ),
                     ],
                   ),
                   TextFormField(),
                 ],
               ),
-              const SizedBox(
-                height: 400,
+              SizedBox(
+                height: size.height * 0.4,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,

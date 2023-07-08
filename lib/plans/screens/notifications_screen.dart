@@ -1,5 +1,3 @@
-// ignore_for_file: unused_field
-
 import 'package:flutter/material.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
 import 'package:intl/intl.dart';
@@ -15,7 +13,6 @@ class NotificationsScreen extends StatefulWidget {
 class _NotificationsScreenState extends State<NotificationsScreen> {
   DateTime _selectedDate = DateTime.now();
   String _chosenTime = DateFormat('HH:mm').format(DateTime.now());
-  final Map<DateTime, List<dynamic>> _events = {};
   final List<String> weekdays = [
     'Monday',
     'Tuesday',
@@ -28,7 +25,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData mediaQuery = MediaQuery.of(context);
+    Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: ChildAppBar(),
@@ -40,8 +37,8 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
             Column(
               children: [
                 Container(
-                  height: mediaQuery.size.height * 0.4,
-                  width: mediaQuery.size.width * 0.9,
+                  height: size.height * 0.4,
+                  width: size.width * 0.9,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -57,21 +54,22 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     },
                   ),
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: size.height / 40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
                       'Choose Day:  ',
-                      style: TextStyle(fontSize: 18),
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     Text(
                       'Every ${weekdays[_selectedDate.weekday - 1]}',
-                      style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 18),
+                      style: const TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),
                     ),
                   ],
                 ),
@@ -81,18 +79,19 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                   children: [
                     Text(
                       'Choose Time:  ',
-                      style: TextStyle(fontSize: 18),
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     Text(
                       _chosenTime,
-                      style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 18),
+                      style: const TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: size.height / 40),
                 Center(
                     child: ElevatedButton(
                   onPressed: () async {
@@ -101,15 +100,13 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                       context: context,
                     ) as TimeOfDay;
 
-                    if (pickedTime != null) {
-                      DateTime parsedTime = DateFormat.jm()
-                          .parse(pickedTime.format(context).toString());
-                      String formattedTime =
-                          DateFormat('HH:mm:ss').format(parsedTime);
-                      setState(() {
-                        _chosenTime = formattedTime;
-                      });
-                    }
+                    DateTime parsedTime = DateFormat.jm()
+                        .parse(pickedTime.format(context).toString());
+                    String formattedTime =
+                        DateFormat('HH:mm:ss').format(parsedTime);
+                    setState(() {
+                      _chosenTime = formattedTime;
+                    });
                   },
                   child: const Text('Save'),
                 ))

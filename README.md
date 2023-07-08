@@ -51,3 +51,4 @@ We appreciate your interest in Helzy and look forward to your involvement!
 # Fix List
  - Create Single File creates folder instead of adding new image (analyses_screen)
  - Recreate MySleepScreen because I hated building it
+ - Improve treatment screen because I just hate it also

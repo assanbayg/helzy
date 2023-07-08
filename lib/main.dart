@@ -73,7 +73,8 @@ class MyApp extends StatelessWidget {
           Locale('kk', 'KK'),
         ],
         // home: const MainScreen(),
-        home: const NavigationBarScreen(),
+        // home: const NavigationBarScreen(),
+        home: PolicyScreen(),
         initialRoute: '/',
         routes: {
           NavigationBarScreen.routeName: (context) =>
@@ -96,7 +97,7 @@ class MyApp extends StatelessWidget {
           WaterScreen.routeName: (context) => const WaterScreen(),
           MyDietScreen.routeName: (context) => const MyDietScreen(),
           StepsScreen.routeName: (context) => const StepsScreen(),
-          Treatment.routeName: (context) => const Treatment(),
+          TreatmentScreen.routeName: (context) => const TreatmentScreen(),
           DiaryScreen.routeName: (context) => const DiaryScreen(),
         },
       ),

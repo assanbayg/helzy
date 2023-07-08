@@ -14,25 +14,26 @@ class HabitsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: MyAppBar(theme: theme, title: 'Habits'),
       body: Container(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(size.height / 50),
         height: double.infinity,
         width: double.infinity,
         child: Stack(
           children: [
             Positioned(
-              top: 20,
-              left: 20,
+              top: size.height / 50,
+              left: size.height / 50,
               child: GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, StepsScreen.routeName);
                 },
                 child: Container(
-                  height: 110,
-                  width: 110,
+                  height: size.height / 10,
+                  width: size.height / 10,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -50,7 +51,7 @@ class HabitsScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                          height: 35,
+                          height: size.height / 30,
                           child: Image.asset('assets/images/steps_icon.png')),
                     ],
                   ),
@@ -58,15 +59,15 @@ class HabitsScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 60,
+              top: size.height / 15,
               right: 0,
               child: GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, WaterScreen.routeName);
                 },
                 child: Container(
-                  height: 120,
-                  width: 120,
+                  height: size.height / 8,
+                  width: size.height / 8,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 28, 21, 62),
@@ -83,7 +84,7 @@ class HabitsScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                          height: 35,
+                          height: size.height / 30,
                           child: Image.asset('assets/images/water.png')),
                     ],
                   ),
@@ -91,14 +92,14 @@ class HabitsScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 160,
+              top: size.height / 6.5,
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).pushNamed(MyDietScreen.routeName);
                 },
                 child: Container(
-                  height: mediaQuery.size.width * 0.55,
-                  width: mediaQuery.size.width * 0.55,
+                  height: size.width * 0.55,
+                  width: size.width * 0.55,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: Colors.red.shade200, shape: BoxShape.circle),
@@ -110,14 +111,14 @@ class HabitsScreen extends StatelessWidget {
                         style: theme.textTheme.headlineMedium,
                       ),
                       Container(
-                        width: 140,
+                        width: size.height * 0.2,
                         height: 2,
                         margin: const EdgeInsets.symmetric(vertical: 10),
                         color: Colors.white,
                       ),
-                      const SizedBox(
-                        width: 160,
-                        child: Text(
+                      SizedBox(
+                        width: size.height * 0.2,
+                        child: const Text(
                           'Here is an information about the diet you are following',
                           textAlign: TextAlign.center,
                         ),
@@ -127,46 +128,46 @@ class HabitsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // Positioned(
-            //   bottom: 180,
-            //   right: 20,
-            //   child: GestureDetector(
-            //     onTap: () {},
-            //     child: Container(
-            //       height: 100,
-            //       width: 100,
-            //       alignment: Alignment.center,
-            //       decoration: BoxDecoration(
-            //         color: Colors.yellow.shade600,
-            //         borderRadius: BorderRadius.circular(50),
-            //       ),
-            //       child: Column(
-            //         mainAxisAlignment: MainAxisAlignment.center,
-            //         children: [
-            //           const Text(
-            //             'Exercise',
-            //             style: TextStyle(fontWeight: FontWeight.w700),
-            //             textAlign: TextAlign.center,
-            //           ),
-            //           SizedBox(
-            //             height: 40,
-            //             child: Image.asset('assets/images/exercise_icon.png'),
-            //           ),
-            //         ],
-            //       ),
-            //     ),
-            //   ),
-            // ),
             Positioned(
-              bottom: 60,
-              left: 40,
+              bottom: size.height / 5,
+              right: size.height / 50,
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  height: size.height * 0.125,
+                  width: size.height * 0.125,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.yellow.shade600,
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Exercise',
+                        style: TextStyle(fontWeight: FontWeight.w700),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: size.height / 24,
+                        child: Image.asset('assets/images/exercise_icon.png'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: size.height / 15,
+              left: size.height / 25,
               child: GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, DiaryScreen.routeName);
                 },
                 child: Container(
-                  height: 170,
-                  width: 170,
+                  height: size.height / 6,
+                  width: size.height / 6,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: const Color.fromRGBO(134, 132, 255, 1),
@@ -178,16 +179,17 @@ class HabitsScreen extends StatelessWidget {
                     children: [
                       Text('My Diary', style: theme.textTheme.headlineSmall),
                       Container(
-                        width: 80,
+                        width: size.height / 10,
                         height: 1,
                         margin: const EdgeInsets.symmetric(vertical: 5),
                         color: Colors.white,
                       ),
                       SizedBox(
-                        width: 120,
+                        width: size.height * 0.125,
                         child: Text(
                           'Here is information about your emotions and feelings',
                           style: theme.textTheme.bodySmall,
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],

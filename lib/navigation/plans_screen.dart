@@ -56,7 +56,8 @@ class _PlansScreenState extends State<PlansScreen> {
             PlanCard(
               title: 'Treatment',
               editedText: 'edited last week',
-              onTap: () => Navigator.pushNamed(context, Treatment.routeName),
+              onTap: () =>
+                  Navigator.pushNamed(context, TreatmentScreen.routeName),
             ),
             PlanCard(
               title: 'Notifications',
