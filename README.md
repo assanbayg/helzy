@@ -34,7 +34,7 @@ To get started with Helzy, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/assanbayg/helzy.git`
 2. Install Flutter dependencies: `flutter pub get`
-3. Configure Firebase: Set up a Firebase project and update the necessary configuration files.
+3. Configure Firebase: Set up a Firebase project and update the necessary configuration files. I did not include firebase_options therefore you need to it yourself.
 4. Build and run the app: `flutter run`
 
 For more detailed instructions and additional information, refer to the [full documentation](documentation-link).
