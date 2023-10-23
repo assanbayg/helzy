@@ -7,7 +7,6 @@ import 'firebase_options.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'langs/app_localizations.dart';
 //auth related imports
-import 'auth/main_screen.dart';
 import 'auth/login_screen.dart';
 import 'auth/policy_screen.dart';
 import 'auth/sign_up_screen.dart';
@@ -73,8 +72,7 @@ class MyApp extends StatelessWidget {
           Locale('kk', 'KK'),
         ],
         // home: const MainScreen(),
-        // home: const NavigationBarScreen(),
-        home: PolicyScreen(),
+        home: const NavigationBarScreen(),
         initialRoute: '/',
         routes: {
           NavigationBarScreen.routeName: (context) =>

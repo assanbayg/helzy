@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:helzy/auth/auth_services.dart';
+import 'package:helzy/firebase/auth_services.dart';
 import 'package:helzy/auth/policy_screen.dart';
 import 'package:helzy/widgets/logo_title.dart';
 

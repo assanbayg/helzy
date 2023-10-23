@@ -1,10 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
-
-import 'dart:io';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:helzy/file_management/image_picker.dart';
+import 'package:helzy/file_management/image_view.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
 
 class AddFilesToFolderScreen extends StatefulWidget {
@@ -33,8 +30,8 @@ class _AddFilesToFolderScreenState extends State<AddFilesToFolderScreen> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             TextButton(
-              child: Row(
-                children: const [
+              child: const Row(
+                children: [
                   Icon(Icons.add_rounded),
                   Text('Add'),
                 ],
@@ -50,13 +47,7 @@ class _AddFilesToFolderScreenState extends State<AddFilesToFolderScreen> {
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.75,
-              child: Expanded(
-                child: ListView.builder(
-                  itemCount: _files.length,
-                  itemBuilder: (BuildContext context, int index) =>
-                      ImagePicker(filePath: _files[index]),
-                ),
-              ),
+              child: Expanded(child: ImageView(files: _files)),
             ),
           ],
         ),

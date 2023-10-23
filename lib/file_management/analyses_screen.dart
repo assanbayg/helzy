@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:helzy/file_management/folders_view.dart';
+import 'package:helzy/file_management/image_picker.dart';
+import 'package:helzy/file_management/image_view.dart';
+import 'package:helzy/firebase/storage_services.dart';
 import 'package:helzy/widgets/my_app_bar.dart';
 
 import 'package:helzy/file_management/folder_screen.dart';
@@ -16,6 +20,7 @@ class AnalysesScreen extends StatefulWidget {
 
 class _AnalysesScreenState extends State<AnalysesScreen> {
   final List<String> _folders = [];
+  final List<String> _files = [];
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +59,6 @@ class _AnalysesScreenState extends State<AnalysesScreen> {
                 },
               );
               if (result == 'create_folder') {
-                // ignore: use_build_context_synchronously
                 final folderName = await Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -69,8 +73,10 @@ class _AnalysesScreenState extends State<AnalysesScreen> {
               } else if (result == 'add_single_file') {
                 final result = await FilePicker.platform.pickFiles();
                 if (result != null) {
+                  StorageService()
+                      .uploadFile(result.files.single.path as String);
                   setState(() {
-                    _folders.add(result.files.single.path as String);
+                    _files.add(result.files.single.path as String);
                   });
                 }
               }
@@ -82,47 +88,20 @@ class _AnalysesScreenState extends State<AnalysesScreen> {
               ],
             ),
           ),
-          _folders.isEmpty
+          _folders.isEmpty && _files.isEmpty
               ? Text(
                   'No folders created yet!\nClick + Create',
                   style: theme.textTheme.headlineSmall,
                   textAlign: TextAlign.center,
                 )
-              : SizedBox(
-                  height: size.height * 0.3,
-                  child: ListView.builder(
-                    itemCount: _folders.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return GestureDetector(
-                        onTap: () async {
-                          if (_folders.isEmpty) return;
-
-                          final result = await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AddFilesToFolderScreen(
-                                folderName: _folders[index],
-                              ),
-                            ),
-                          );
-                          if (result != null) {
-                            setState(() {
-                              _folders[index] = result;
-                            });
-                          }
-                        },
-                        child: ListTile(
-                          leading: SizedBox(
-                            height: size.height * 0.03,
-                            child: Image.asset('assets/images/folder_icon.png'),
-                          ),
-                          title: Text(
-                            _folders[index],
-                            style: theme.textTheme.bodyMedium,
-                          ),
-                        ),
-                      );
-                    },
+              : Expanded(
+                  child: Column(
+                    children: [
+                      _files.isNotEmpty
+                          ? ImageView(files: _files)
+                          : SizedBox.shrink(),
+                      FoldersView(folders: _folders),
+                    ],
                   ),
                 ),
         ],

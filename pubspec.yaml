@@ -48,6 +48,8 @@ dependencies:
   auth: ^8.2.0+02
   firebase_auth: ^4.2.2
   cloud_firestore: ^4.5.1
+  firebase_storage: ^11.2.6
+  dio: ^5.3.2
 
 dev_dependencies:
   flutter_test:

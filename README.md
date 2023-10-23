@@ -48,7 +48,5 @@ This project is licensed under the [MIT License]. Please review the license file
 For any inquiries or further information, please contact our team at developer's contacts.
 We appreciate your interest in Helzy and look forward to your involvement!
 
-# Fix List
- - Create Single File creates folder instead of adding new image (analyses_screen)
- - Recreate MySleepScreen because I hated building it
- - Improve treatment screen because I just hate it also
+# Next Action List for developer (me)
+Доработать функцию доступа к курсам, в видео урокам.
