@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:helzy/main_screens/file_management/folders_view.dart';
-import 'package:helzy/main_screens/file_management/image_picker.dart';
 import 'package:helzy/main_screens/file_management/image_view.dart';
-import 'package:helzy/services/storage_services.dart';
+import 'package:helzy/services/storage_service.dart';
 import 'package:helzy/main_widgets/my_app_bar.dart';
 
-import 'package:helzy/main_screens/file_management/folder_screen.dart';
 import 'package:helzy/main_screens/file_management/create_folder.dart'
     show CreateFolderScreen;
 
@@ -99,7 +97,7 @@ class _AnalysesScreenState extends State<AnalysesScreen> {
                     children: [
                       _files.isNotEmpty
                           ? ImageView(files: _files)
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                       FoldersView(folders: _folders),
                     ],
                   ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helzy/providers/helzy_star.dart';
+import 'package:helzy/providers/helzy_star_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'widgets/sleep_hours_line_chart.dart';

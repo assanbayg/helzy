@@ -25,14 +25,14 @@ class MyDietScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: Column(
+              child: const Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Row(
-                      children: const [
+                      children: [
                         Icon(
                           Icons.add_rounded,
-                          color: Colors.black,
+                          // color: Colors.black,
                         ),
                         Text(
                           'Add',
@@ -45,7 +45,7 @@ class MyDietScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Row(
-                          children: const [
+                          children: [
                             Icon(
                               Icons.check_circle,
                             ),
@@ -55,7 +55,7 @@ class MyDietScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const Text(
+                        Text(
                           '200 kcal',
                           style: TextStyle(color: Colors.black),
                         ),
@@ -66,7 +66,7 @@ class MyDietScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Row(
-                          children: const [
+                          children: [
                             Icon(
                               Icons.check_circle,
                             ),
@@ -76,7 +76,7 @@ class MyDietScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const Text(
+                        Text(
                           '34 kcal',
                           style: TextStyle(color: Colors.black),
                         )
@@ -92,11 +92,11 @@ class MyDietScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: Column(
+              child: const Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Row(
-                      children: const [
+                      children: [
                         Icon(
                           Icons.add_rounded,
                           color: Colors.black,
@@ -112,7 +112,7 @@ class MyDietScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Row(
-                          children: const [
+                          children: [
                             Icon(
                               Icons.check_circle,
                             ),
@@ -122,7 +122,7 @@ class MyDietScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const Text(
+                        Text(
                           '260 kcal',
                           style: TextStyle(color: Colors.black),
                         ),
@@ -133,7 +133,7 @@ class MyDietScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Row(
-                          children: const [
+                          children: [
                             Icon(
                               Icons.check_circle,
                             ),
@@ -143,7 +143,7 @@ class MyDietScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const Text(
+                        Text(
                           '104 kcal',
                           style: TextStyle(color: Colors.black),
                         )
@@ -170,9 +170,9 @@ class MyDietScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: Column(children: [
+              child: const Column(children: [
                 Row(
-                  children: const [
+                  children: [
                     Icon(
                       Icons.add_rounded,
                       color: Colors.black,
@@ -183,7 +183,7 @@ class MyDietScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
               ]),
@@ -216,8 +216,8 @@ class FoodCard extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () {},
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     Icon(
                       Icons.add_rounded,
                       color: Colors.black,

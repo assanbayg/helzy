@@ -95,16 +95,8 @@ class _WaterScreenState extends State<WaterScreen> {
               ),
               TextButton(
                   onPressed: () => addNewTime(context),
-                  // () {
-                  //   _showDialog();
-                  //   setState(() {
-                  //     waterTimes.add('23:00');
-                  //     todayTimes.add(false);
-                  //     yesterdayTimes.add(false);
-                  //   });
-                  // },
-                  child: Row(
-                    children: const [
+                  child: const Row(
+                    children: [
                       Icon(Icons.add_rounded),
                       Text(
                         'Add',

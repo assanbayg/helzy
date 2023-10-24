@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../providers/helzy_star.dart';
+import '../../../providers/helzy_star_provider.dart';
 import '../../../providers/video.dart';
 import '../screens/meditation_detail.dart';
 
@@ -19,7 +19,7 @@ class _VideoItemState extends State<VideoItem> {
   Widget build(BuildContext context) {
     Video video =
         Provider.of<Videos>(context, listen: false).videos[widget.index];
-    int starsCount = Provider.of<HelzyStars>(context).starsCount;
+    int starsCount = Provider.of<HelzyStarsProvider>(context).starsCount;
 
     void buy() {
       if (starsCount < video.price) {
@@ -27,7 +27,7 @@ class _VideoItemState extends State<VideoItem> {
             const SnackBar(content: Text('Not enough to buy this item')));
       } else {
         setState(() {
-          Provider.of<HelzyStars>(context, listen: false).starsCount -=
+          Provider.of<HelzyStarsProvider>(context, listen: false).starsCount -=
               video.price;
           video.price = 0;
         });

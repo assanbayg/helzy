@@ -1,6 +1,6 @@
-import 'package:helzy/services/articles_services.dart';
+import 'package:helzy/providers/articles_provider.dart';
 import 'package:helzy/models/article.dart';
-import 'package:helzy/providers/helzy_star.dart';
+import 'package:helzy/providers/helzy_star_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -16,27 +16,18 @@ class ContentScreen extends StatefulWidget {
 }
 
 class _ContentScreenState extends State<ContentScreen> {
-  List<Article> articles = [];
-  Future<void> loadArticles() async {
-    ArticlesService articlesService = ArticlesService();
-    List<Article> newArticles = await articlesService.getArticles();
-    for (Article article in newArticles) {
-      articles.add(article);
-    }
-  }
-
   @override
   void initState() {
-    loadArticles().then((_) {
-      setState(() {});
-    });
     super.initState();
+    Provider.of<ArticlesProvider>(context, listen: false).fetchArticles();
   }
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    int starsCount = Provider.of<HelzyStars>(context).starsCount;
+    List<Article> articles = Provider.of<ArticlesProvider>(context).articles;
+    final int starsCount = Provider.of<HelzyStarsProvider>(context).starsCount;
+
     return Scaffold(
       appBar: MyAppBar(
         theme: theme,
@@ -49,7 +40,7 @@ class _ContentScreenState extends State<ContentScreen> {
           child: Column(
             children: [
               TextField(
-                //SearchInput
+                // SearchInput
                 controller: TextEditingController(),
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
@@ -73,10 +64,11 @@ class _ContentScreenState extends State<ContentScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.65,
                 child: ListView.builder(
-                    itemCount: articles.length,
-                    itemBuilder: (BuildContext context, index) {
-                      return ContentBuyItem(index: index);
-                    }),
+                  itemCount: articles.length,
+                  itemBuilder: (BuildContext context, index) {
+                    return ContentBuyItem(index: index);
+                  },
+                ),
               ),
             ],
           ),

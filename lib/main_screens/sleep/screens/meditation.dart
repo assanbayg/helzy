@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/video.dart';
-import '../../../providers/helzy_star.dart';
+import '../../../providers/helzy_star_provider.dart';
 import '../../../main_widgets/my_app_bar.dart';
 import '../widgets/video_item.dart';
 
@@ -19,7 +19,7 @@ class _MeditationState extends State<Meditation> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     List<Video> videos = Provider.of<Videos>(context).videos;
-    int starsCount = Provider.of<HelzyStars>(context).starsCount;
+    int starsCount = Provider.of<HelzyStarsProvider>(context).starsCount;
 
     return SafeArea(
       child: Scaffold(

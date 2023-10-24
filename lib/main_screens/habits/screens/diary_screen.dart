@@ -30,21 +30,21 @@ class DiaryScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                   color: Colors.white,
                 ),
-                child: SingleChildScrollView(
+                child: const SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         'Rate your mood',
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Star(),
                           Star(),
                           Star(),

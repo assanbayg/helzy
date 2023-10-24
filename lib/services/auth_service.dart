@@ -1,10 +1,11 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unused_local_variable
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
   final db = FirebaseFirestore.instance;
+  final auth = FirebaseAuth.instance;
 
   Future<String?> register({
     required String email,
@@ -14,13 +15,11 @@ class AuthService {
     required String dateOfBirth,
   }) async {
     try {
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final UserCredential result = await auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      final userReference =
-          db.collection('users').doc(FirebaseAuth.instance.currentUser!.uid);
+      final userReference = db.collection('users').doc(auth.currentUser!.uid);
       await userReference.set({
         'name': name,
         'surname': surname,
@@ -45,7 +44,7 @@ class AuthService {
     required String password,
   }) async {
     try {
-      final credential = await FirebaseAuth.instance
+      final UserCredential result = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
       User? currentUser = FirebaseAuth.instance.currentUser;

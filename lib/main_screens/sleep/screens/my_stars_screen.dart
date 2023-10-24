@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../providers/helzy_star.dart';
+import '../../../providers/helzy_star_provider.dart';
 import '../../../main_widgets/my_app_bar.dart';
 
 class HelzyStarsScreen extends StatefulWidget {
@@ -15,9 +15,9 @@ class HelzyStarsScreen extends StatefulWidget {
 class _HelzyStarsScreenState extends State<HelzyStarsScreen> {
   @override
   Widget build(BuildContext context) {
-    int waterCount = Provider.of<HelzyStars>(context).waterCount;
-    int sleepCount = Provider.of<HelzyStars>(context).sleepCount;
-    int starsCount = Provider.of<HelzyStars>(context).starsCount;
+    int waterCount = Provider.of<HelzyStarsProvider>(context).waterCount;
+    int sleepCount = Provider.of<HelzyStarsProvider>(context).sleepCount;
+    int starsCount = Provider.of<HelzyStarsProvider>(context).starsCount;
 
     ThemeData theme = Theme.of(context);
     return Scaffold(

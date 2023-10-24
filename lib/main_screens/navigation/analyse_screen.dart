@@ -81,8 +81,8 @@ class AnalysesScreen extends StatelessWidget {
                       );
                     });
               },
-              child: Row(
-                children: const [
+              child: const Row(
+                children: [
                   Icon(Icons.add_rounded),
                   SizedBox(width: 15),
                   Text('Add analyses'),

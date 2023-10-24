@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helzy/main_screens/auth/main_screen.dart';
+import 'package:helzy/providers/auth_provider.dart';
+import 'package:helzy/services/auth_service.dart';
 import 'package:provider/provider.dart';
 //firebase related imports
 import 'package:firebase_core/firebase_core.dart';
@@ -33,7 +35,7 @@ import 'main_screens/sleep/screens/my_stars_screen.dart';
 import 'main_screens/sleep/sleep_results_screen.dart';
 // other imports
 import 'providers/articles_provider.dart';
-import 'providers/helzy_star.dart';
+import 'providers/helzy_star_provider.dart';
 import 'providers/video.dart';
 import 'main_screens/star_screen.dart';
 import 'theme.dart';
@@ -43,7 +45,12 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(
+    AuthProvider(
+      auth: AuthService(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -53,9 +60,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (ctx) => HelzyStars()),
+        ChangeNotifierProvider(create: (ctx) => HelzyStarsProvider()),
         ChangeNotifierProvider(create: (ctx) => Videos()),
-        ChangeNotifierProvider(create: (ctx) => ArticlesList()),
+        ChangeNotifierProvider(create: (ctx) => ArticlesProvider()),
         ChangeNotifierProvider(create: (ctx) => Sleep()),
       ],
       child: MaterialApp(

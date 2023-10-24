@@ -40,8 +40,8 @@ class MeditationDetailScreen extends StatelessWidget {
                   const Text('Like'),
                 ],
               ),
-              Row(
-                children: const [
+              const Row(
+                children: [
                   Text('Write your opinion about this video!'),
                 ],
               ),

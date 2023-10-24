@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class HelzyStars with ChangeNotifier {
+class HelzyStarsProvider with ChangeNotifier {
   int _waterCount = 15;
   int _sleepCount = 12;
   int _starsCount = 27;

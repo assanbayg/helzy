@@ -4,7 +4,7 @@ import 'package:helzy/models/article.dart';
 import 'package:provider/provider.dart';
 
 import 'package:helzy/providers/articles_provider.dart';
-import 'package:helzy/providers/helzy_star.dart';
+import 'package:helzy/providers/helzy_star_provider.dart';
 
 class ContentBuyItem extends StatefulWidget {
   final int index;
@@ -17,9 +17,9 @@ class ContentBuyItem extends StatefulWidget {
 class _ContentBuyItemState extends State<ContentBuyItem> {
   @override
   Widget build(BuildContext context) {
-    Article article = Provider.of<ArticlesList>(context, listen: false)
-        .articlesList[widget.index];
-    int starsCount = Provider.of<HelzyStars>(context).starsCount;
+    final Article article =
+        Provider.of<ArticlesProvider>(context).articles[widget.index];
+    final int starsCount = Provider.of<HelzyStarsProvider>(context).starsCount;
 
     void buy() {
       if (starsCount < article.price) {
@@ -27,7 +27,7 @@ class _ContentBuyItemState extends State<ContentBuyItem> {
             const SnackBar(content: Text('Not enough to buy this item')));
       } else {
         setState(() {
-          Provider.of<HelzyStars>(context, listen: false).starsCount -=
+          Provider.of<HelzyStarsProvider>(context, listen: false).starsCount -=
               article.price;
           article.price = 0;
         });

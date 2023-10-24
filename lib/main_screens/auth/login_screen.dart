@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helzy/services/auth_services.dart';
+import 'package:helzy/services/auth_service.dart';
 import 'package:helzy/main_widgets/navigation_bar.dart';
 import 'package:helzy/main_widgets/logo_title.dart';
 

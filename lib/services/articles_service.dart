@@ -20,9 +20,8 @@ class ArticlesService {
         );
         articles.add(article);
       }
-    } catch (e) {
-      print(e);
-    }
+      // ignore: empty_catches
+    } catch (e) {}
     return articles;
   }
 }
