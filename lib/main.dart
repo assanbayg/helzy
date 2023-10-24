@@ -18,7 +18,7 @@ import 'main_screens/habits/screens/steps_screen.dart';
 import 'main_screens/habits/screens/water_screen.dart';
 // navigation bar related imports
 import 'main_screens/navigation/analyse_screen.dart';
-import 'main_screens/navigation/content_screen.dart';
+import 'main_screens/navigation/articles_screen.dart';
 import 'main_screens/navigation/habits_screen.dart';
 import 'main_screens/navigation/plans_screen.dart';
 import 'main_screens/navigation/sleep_screen.dart';
@@ -32,7 +32,7 @@ import 'main_screens/sleep/screens/meditation.dart';
 import 'main_screens/sleep/screens/my_stars_screen.dart';
 import 'main_screens/sleep/sleep_results_screen.dart';
 // other imports
-import 'providers/content.dart';
+import 'providers/articles_provider.dart';
 import 'providers/helzy_star.dart';
 import 'providers/video.dart';
 import 'main_screens/star_screen.dart';
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (ctx) => HelzyStars()),
         ChangeNotifierProvider(create: (ctx) => Videos()),
-        ChangeNotifierProvider(create: (ctx) => ContentList()),
+        ChangeNotifierProvider(create: (ctx) => ArticlesList()),
         ChangeNotifierProvider(create: (ctx) => Sleep()),
       ],
       child: MaterialApp(

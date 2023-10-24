@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:helzy/main_screens/content/screens/content_detail.dart';
+import 'package:helzy/models/article.dart';
 import 'package:provider/provider.dart';
 
-import 'package:helzy/providers/content.dart';
+import 'package:helzy/providers/articles_provider.dart';
 import 'package:helzy/providers/helzy_star.dart';
 
 class ContentBuyItem extends StatefulWidget {
@@ -16,25 +17,25 @@ class ContentBuyItem extends StatefulWidget {
 class _ContentBuyItemState extends State<ContentBuyItem> {
   @override
   Widget build(BuildContext context) {
-    Content content = Provider.of<ContentList>(context, listen: false)
-        .contentList[widget.index];
+    Article article = Provider.of<ArticlesList>(context, listen: false)
+        .articlesList[widget.index];
     int starsCount = Provider.of<HelzyStars>(context).starsCount;
 
     void buy() {
-      if (starsCount < content.price) {
+      if (starsCount < article.price) {
         ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Not enough to buy this item')));
       } else {
         setState(() {
           Provider.of<HelzyStars>(context, listen: false).starsCount -=
-              content.price;
-          content.price = 0;
+              article.price;
+          article.price = 0;
         });
       }
     }
 
     void check() {
-      if (content.price != 0) return;
+      if (article.price != 0) return;
       Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) =>
               ContentDetailScreen(index: widget.index)));
@@ -55,7 +56,7 @@ class _ContentBuyItemState extends State<ContentBuyItem> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    content.title,
+                    article.title,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   const SizedBox(height: 5),
@@ -78,8 +79,8 @@ class _ContentBuyItemState extends State<ContentBuyItem> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(content.price > 0
-                                  ? content.price.toString()
+                              Text(article.price > 0
+                                  ? article.price.toString()
                                   : '0'),
                               SizedBox(
                                 height: 20,

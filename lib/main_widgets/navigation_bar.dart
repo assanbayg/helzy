@@ -3,7 +3,7 @@ import 'package:helzy/main_widgets/my_drawer.dart';
 
 import 'package:helzy/main_screens/navigation/sleep_screen.dart';
 import 'package:helzy/main_screens/navigation/plans_screen.dart';
-import 'package:helzy/main_screens/navigation/content_screen.dart';
+import 'package:helzy/main_screens/navigation/articles_screen.dart';
 import 'package:helzy/main_screens/file_management/analyses_screen.dart';
 import 'package:helzy/main_screens/navigation/habits_screen.dart';
 

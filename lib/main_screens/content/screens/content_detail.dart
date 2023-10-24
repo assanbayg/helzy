@@ -1,7 +1,8 @@
+import 'package:helzy/models/article.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
-import '../../../providers/content.dart' show Content, ContentList;
+import '../../../providers/articles_provider.dart' show ArticlesList, Content, ContentList;
 import '../../../main_widgets/my_app_bar.dart' show ChildAppBar;
 
 class ContentDetailScreen extends StatelessWidget {
@@ -11,8 +12,8 @@ class ContentDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextTheme theme = Theme.of(context).textTheme;
-    Content content =
-      Provider.of<ContentList>(context).contentList.elementAt(index);
+    Article article =
+      Provider.of<ArticlesList>(context).articlesList.elementAt(index);
 
     return Scaffold(
       appBar: ChildAppBar(),
@@ -22,14 +23,14 @@ class ContentDetailScreen extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                content.title,
+                article.title,
                 style: theme.headlineSmall,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
-                child: Image.asset(content.imageUrl),
+                child: Image.asset(article.imageUrl),
               ),
-              Text(content.text),
+              Text(article.text),
             ],
           ),
         ),

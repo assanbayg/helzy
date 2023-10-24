@@ -1,12 +1,14 @@
 class Article {
   final String title;
   final String text;
-  final int price;
+  String imageUrl = '';
+  int price;
 
   Article({
     required this.title,
     required this.text,
-    required this.price,
+    this.price = 0,
+    this.imageUrl = '',
   });
 
   @override
@@ -19,6 +21,7 @@ class Article {
       title: json["title"] as String,
       text: json["text"] as String,
       price: json["price"] as int,
+      imageUrl: json["imageUrl"] as String,
     );
   }
 }
