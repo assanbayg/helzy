@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helzy/auth/main_screen.dart';
+import 'package:helzy/main_screens/auth/main_screen.dart';
 import 'package:provider/provider.dart';
 //firebase related imports
 import 'package:firebase_core/firebase_core.dart';
@@ -8,34 +8,34 @@ import 'firebase_options.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'langs/app_localizations.dart';
 //auth related imports
-import 'auth/login_screen.dart';
-import 'auth/policy_screen.dart';
-import 'auth/sign_up_screen.dart';
+import 'main_screens/auth/login_screen.dart';
+import 'main_screens/auth/policy_screen.dart';
+import 'main_screens/auth/sign_up_screen.dart';
 // habits screen related imports
-import 'habits/screens/diary_screen.dart';
-import 'habits/screens/my_diet_screen.dart';
-import 'habits/screens/steps_screen.dart';
-import 'habits/screens/water_screen.dart';
+import 'main_screens/habits/screens/diary_screen.dart';
+import 'main_screens/habits/screens/my_diet_screen.dart';
+import 'main_screens/habits/screens/steps_screen.dart';
+import 'main_screens/habits/screens/water_screen.dart';
 // navigation bar related imports
-import 'navigation/analyse_screen.dart';
-import 'navigation/content_screen.dart';
-import 'navigation/habits_screen.dart';
-import 'navigation/plans_screen.dart';
-import 'navigation/sleep_screen.dart';
-import 'navigation_bar.dart';
+import 'main_screens/navigation/analyse_screen.dart';
+import 'main_screens/navigation/content_screen.dart';
+import 'main_screens/navigation/habits_screen.dart';
+import 'main_screens/navigation/plans_screen.dart';
+import 'main_screens/navigation/sleep_screen.dart';
+import 'main_widgets/navigation_bar.dart';
 // plans related imports
-import 'plans/screens/notifications_screen.dart';
-import 'plans/screens/treatment_screen.dart';
+import 'main_screens/plans/screens/notifications_screen.dart';
+import 'main_screens/plans/screens/treatment_screen.dart';
 //sleep screen related imports
-import 'sleep/screens/good_night_screen.dart';
-import 'sleep/screens/meditation.dart';
-import 'sleep/screens/my_stars_screen.dart';
-import 'sleep/sleep_results_screen.dart';
+import 'main_screens/sleep/screens/good_night_screen.dart';
+import 'main_screens/sleep/screens/meditation.dart';
+import 'main_screens/sleep/screens/my_stars_screen.dart';
+import 'main_screens/sleep/sleep_results_screen.dart';
 // other imports
 import 'providers/content.dart';
 import 'providers/helzy_star.dart';
 import 'providers/video.dart';
-import 'star_screen.dart';
+import 'main_screens/star_screen.dart';
 import 'theme.dart';
 
 void main() async {
