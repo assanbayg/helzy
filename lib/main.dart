@@ -5,7 +5,7 @@ import 'package:helzy/services/auth_service.dart';
 import 'package:provider/provider.dart';
 //firebase related imports
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'config/firebase_options.dart';
 // localization related imports
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'langs/app_localizations.dart';
@@ -36,9 +36,9 @@ import 'main_screens/sleep/sleep_results_screen.dart';
 // other imports
 import 'providers/articles_provider.dart';
 import 'providers/helzy_star_provider.dart';
-import 'providers/video.dart';
+import 'providers/video_provider.dart';
 import 'main_screens/star_screen.dart';
-import 'theme.dart';
+import 'themes/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -93,7 +93,7 @@ class MyApp extends StatelessWidget {
           Meditation.routeName: (context) => const Meditation(),
           HabitsScreen.routeName: (context) => const HabitsScreen(),
           SleepScreen.routeName: (context) => const SleepScreen(),
-          ContentScreen.routeName: (context) => const ContentScreen(),
+          ArticlesScreen.routeName: (context) => const ArticlesScreen(),
           NotificationsScreen.routeName: (context) =>
               const NotificationsScreen(),
           StarScreen.routeName: (context) => const StarScreen(),

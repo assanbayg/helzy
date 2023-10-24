@@ -7,15 +7,15 @@ import 'package:flutter/material.dart';
 import '../content/widgets/content_item.dart';
 import '../../main_widgets/my_app_bar.dart';
 
-class ContentScreen extends StatefulWidget {
-  static const routeName = '/content';
-  const ContentScreen({super.key});
+class ArticlesScreen extends StatefulWidget {
+  static const routeName = '/articles';
+  const ArticlesScreen({super.key});
 
   @override
-  State<ContentScreen> createState() => _ContentScreenState();
+  State<ArticlesScreen> createState() => _ArticlesScreenState();
 }
 
-class _ContentScreenState extends State<ContentScreen> {
+class _ArticlesScreenState extends State<ArticlesScreen> {
   @override
   void initState() {
     super.initState();
@@ -31,7 +31,7 @@ class _ContentScreenState extends State<ContentScreen> {
     return Scaffold(
       appBar: MyAppBar(
         theme: theme,
-        title: 'Content',
+        title: 'Articles',
         text: '$starsCount',
       ),
       body: Padding(

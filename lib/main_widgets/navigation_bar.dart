@@ -22,7 +22,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
     SleepScreen(),
     PlansScreen(),
     HabitsScreen(),
-    ContentScreen(),
+    ArticlesScreen(),
   ];
 
   @override

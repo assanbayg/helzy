@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/models/video.dart';
 import 'package:provider/provider.dart';
 
-import '../../../providers/video.dart';
+import '../../../providers/video_provider.dart';
 import '../../../providers/helzy_star_provider.dart';
 import '../../../main_widgets/my_app_bar.dart';
 import '../widgets/video_item.dart';

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/models/video.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/helzy_star_provider.dart';
-import '../../../providers/video.dart';
+import '../../../providers/video_provider.dart';
 import '../screens/meditation_detail.dart';
 
 // ignore: must_be_immutable
