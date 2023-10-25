@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:helzy/main_screens/file_management/image_view.dart';
+import 'package:helzy/main_screens/file_management/widgets/image_view.dart';
 import 'package:helzy/main_widgets/my_app_bar.dart';
 
 class AddFilesToFolderScreen extends StatefulWidget {

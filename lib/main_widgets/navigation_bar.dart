@@ -4,7 +4,7 @@ import 'package:helzy/main_widgets/my_drawer.dart';
 import 'package:helzy/main_screens/navigation/sleep_screen.dart';
 import 'package:helzy/main_screens/navigation/plans_screen.dart';
 import 'package:helzy/main_screens/navigation/articles_screen.dart';
-import 'package:helzy/main_screens/file_management/analyses_screen.dart';
+import 'package:helzy/main_screens/file_management/analysis_screen.dart';
 import 'package:helzy/main_screens/navigation/habits_screen.dart';
 
 class NavigationBarScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class NavigationBarScreen extends StatefulWidget {
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
   int selectedIndex = 0;
   static List<Widget> screens = const [
-    AnalysesScreen(),
+    AnalysisScreen(),
     SleepScreen(),
     PlansScreen(),
     HabitsScreen(),

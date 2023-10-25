@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helzy/services/storage_service.dart';
 
 class CreateFolderScreen extends StatefulWidget {
   const CreateFolderScreen({super.key});
@@ -35,6 +36,7 @@ class _CreateFolderScreenState extends State<CreateFolderScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFormField(
+                style: const TextStyle(color: Colors.white),
                 controller: _folderNameController,
                 decoration: InputDecoration(
                   labelText: 'Folder name',
@@ -56,6 +58,7 @@ class _CreateFolderScreenState extends State<CreateFolderScreen> {
               ElevatedButton(
                 child: const Text('Create'),
                 onPressed: () {
+                  StorageService().createBucket(_folderNameController.text);
                   if (_formKey.currentState!.validate()) {
                     Navigator.pop(context, _folderNameController.text);
                   }

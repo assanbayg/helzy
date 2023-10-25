@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helzy/main_screens/file_management/folder_screen.dart';
+import 'package:helzy/main_screens/file_management/screens/folder_screen.dart';
 
 class FoldersView extends StatefulWidget {
   final List<String> folders;

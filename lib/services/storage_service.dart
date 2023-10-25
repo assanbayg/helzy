@@ -1,28 +1,34 @@
-//I am sure this doesn't work at all😃
-
+import 'dart:developer';
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class StorageService {
-  final FirebaseStorage _storage = FirebaseStorage.instance;
+  final Reference storageRef = FirebaseStorage.instance.ref();
+
+  Future<void> createBucket(String bucketName) async {
+    final uid = 'test';
+    try {
+      final fileRef = storageRef.child("users/" + uid + "/file.filetype");
+      log('Bucket "$bucketName" created.');
+    } catch (e) {
+      log('Error creating bucket: $e');
+    }
+  }
 
   Future<void> uploadFile(String filePath) async {
     try {
       File file = File(filePath);
-      String fileName = filePath.split('/').last;
-      final analysesRef = _storage.ref('test/$fileName');
-      await analysesRef.putFile(file);
+      await storageRef.putFile(file);
     } catch (e) {
-      // handle error -> write later
+      log(e.toString());
     }
   }
 
   Future<void> downloadFile(String path, String localPath) async {
     try {
-      final analysesRef = _storage.ref('analyses');
-      await analysesRef.writeToFile(File(localPath));
+      await storageRef.writeToFile(File(localPath));
     } catch (e) {
-      // handle error -> write later
+      log(e.toString());
     }
   }
 }
