@@ -13,12 +13,14 @@ class AuthService {
     required String dateOfBirth,
   }) async {
     try {
-      final UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      final UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      final userReference = _db.collection('users').doc(userCredential.user!.uid);
+      final userReference =
+          _db.collection('users').doc(userCredential.user!.uid);
       await userReference.set({
         'name': name,
         'surname': surname,
@@ -44,13 +46,11 @@ class AuthService {
     required String password,
   }) async {
     try {
-      final UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+      // user credentials
+      await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-
-      final userSnapshot = await _db.collection('users').doc(userCredential.user!.uid).get();
-      
       return 'Success';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -63,5 +63,9 @@ class AuthService {
     } catch (e) {
       return e.toString();
     }
+  }
+
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
   }
 }

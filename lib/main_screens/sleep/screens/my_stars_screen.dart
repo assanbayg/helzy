@@ -21,7 +21,7 @@ class _HelzyStarsScreenState extends State<HelzyStarsScreen> {
 
     ThemeData theme = Theme.of(context);
     return Scaffold(
-      appBar: ChildAppBar(),
+      appBar: const ChildAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(14),
         child: SizedBox(

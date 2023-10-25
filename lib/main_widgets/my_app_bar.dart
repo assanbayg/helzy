@@ -50,7 +50,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class ChildAppBar extends StatelessWidget implements PreferredSizeWidget {
-  ChildAppBar({super.key});
+  const ChildAppBar({super.key});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);

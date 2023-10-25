@@ -1,6 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:helzy/providers/user_provider.dart';
+import 'package:helzy/services/auth_service.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
@@ -10,23 +12,20 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
+  final UserProvider userProvider = UserProvider();
   String? _userName;
 
   @override
   void initState() {
-    super.initState();
     loadUserData();
+    super.initState();
   }
 
   Future<void> loadUserData() async {
-    User? currentUser = FirebaseAuth.instance.currentUser;
-    DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(currentUser!.uid)
-        .get();
-    setState(() {
-      _userName = userSnapshot.get('name');
-    });
+    await userProvider.loadUserData();
+    _userName = userProvider.user.name;
+    log('look ${userProvider.user.toString()}');
+    setState(() {});
   }
 
   @override
@@ -65,7 +64,7 @@ class _MyDrawerState extends State<MyDrawer> {
           const Divider(thickness: 2),
           buildListTile('Settings', Icons.settings_rounded, () => null),
           buildListTile('Sign out', Icons.exit_to_app_rounded, () async {
-            await FirebaseAuth.instance.signOut();
+            AuthService().signOut();
             // ignore: use_build_context_synchronously
             Navigator.of(context).pushNamed('/');
           }),

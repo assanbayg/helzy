@@ -15,7 +15,7 @@ class MeditationDetailScreen extends StatelessWidget {
     Video video = Provider.of<Videos>(context).videos.elementAt(index);
 
     return Scaffold(
-      appBar: ChildAppBar(),
+      appBar: const ChildAppBar(),
       body: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
         child: SingleChildScrollView(

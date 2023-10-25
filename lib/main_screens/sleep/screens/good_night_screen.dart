@@ -16,7 +16,7 @@ class GoodNightScreen extends StatelessWidget {
 
     ThemeData theme = Theme.of(context);
     return Scaffold(
-      appBar: ChildAppBar(),
+      appBar: const ChildAppBar(),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

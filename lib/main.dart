@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helzy/main_screens/auth/main_screen.dart';
-import 'package:helzy/providers/auth_provider.dart';
-import 'package:helzy/services/auth_service.dart';
+import 'package:helzy/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 //firebase related imports
 import 'package:firebase_core/firebase_core.dart';
@@ -46,10 +45,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    AuthProvider(
-      auth: AuthService(),
-      child: const MyApp(),
-    ),
+    const MyApp(),
   );
 }
 
@@ -64,6 +60,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => Videos()),
         ChangeNotifierProvider(create: (ctx) => ArticlesProvider()),
         ChangeNotifierProvider(create: (ctx) => Sleep()),
+        ChangeNotifierProvider(create: (ctx) => UserProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -79,8 +76,8 @@ class MyApp extends StatelessWidget {
           Locale('ru', 'RU'),
           Locale('kk', 'KK'),
         ],
-        // home: const MainScreen(),
-        home: const NavigationBarScreen(),
+        home: const MainScreen(),
+        // home: const NavigationBarScreen(),
         initialRoute: '/',
         routes: {
           NavigationBarScreen.routeName: (context) =>

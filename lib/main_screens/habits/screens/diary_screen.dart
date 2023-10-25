@@ -11,7 +11,7 @@ class DiaryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Scaffold(
-      appBar: ChildAppBar(),
+      appBar: const ChildAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(

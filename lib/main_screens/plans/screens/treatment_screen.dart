@@ -10,7 +10,7 @@ class TreatmentScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: ChildAppBar(),
+      appBar: const ChildAppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: size.width / 20),
         child: Container(

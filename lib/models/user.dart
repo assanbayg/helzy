@@ -1,37 +1,28 @@
-import 'dart:developer';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+class MyUser {
+  final String name;
+  final String surname;
+  final String dateOfBirth;
 
-class UserClass {
-  final String uid;
-  final FirebaseFirestore db = FirebaseFirestore.instance;
-  final User? currentUser = FirebaseAuth.instance.currentUser;
+  MyUser({
+    required this.name,
+    required this.surname,
+    required this.dateOfBirth,
+  });
 
-  UserClass({required this.uid});
-
-  Future<DocumentSnapshot> loadUserData() async {
-    final userSnapshot =
-        await db.collection('users').doc(currentUser!.uid).get();
-    return userSnapshot;
+  factory MyUser.fromMap(Map<String, dynamic> data) {
+    return MyUser(
+      name: data['name'] ?? '',
+      surname: data['surname'] ?? '',
+      dateOfBirth: data['dateOfBirth'] ?? '',
+    );
   }
 
-  Future<void> updateUserData({
-    String? name,
-    String? surname,
-    String? dateOfBirth,
-  }) async {
-    final docReference = db.collection('users').doc(currentUser!.uid);
-    final data = {
-      if (name != null) 'name': name,
-      if (surname != null) 'surname': surname,
-      if (dateOfBirth != null) 'dateOfBirth': dateOfBirth,
-    };
-
-    try {
-      await docReference.set(data, SetOptions(merge: true));
-      log('Updated');
-    } catch (e) {
-      log('Failed to update: $e');
-    }
+  @override
+  String toString() {
+    return 'MyUser {'
+        'Name: $name, '
+        'Surname: $surname, '
+        'Date of Birth: $dateOfBirth'
+        '}';
   }
 }

@@ -19,7 +19,7 @@ class _AddFilesToFolderScreenState extends State<AddFilesToFolderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ChildAppBar(),
+      appBar: const ChildAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(

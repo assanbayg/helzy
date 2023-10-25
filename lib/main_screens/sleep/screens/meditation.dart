@@ -24,7 +24,7 @@ class _MeditationState extends State<Meditation> {
 
     return SafeArea(
       child: Scaffold(
-        appBar: ChildAppBar(),
+        appBar: const ChildAppBar(),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
