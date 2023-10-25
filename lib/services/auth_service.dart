@@ -1,11 +1,9 @@
-// ignore_for_file: avoid_print, unused_local_variable
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
-  final db = FirebaseFirestore.instance;
-  final auth = FirebaseAuth.instance;
+  final FirebaseFirestore _db = FirebaseFirestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<String?> register({
     required String email,
@@ -15,16 +13,19 @@ class AuthService {
     required String dateOfBirth,
   }) async {
     try {
-      final UserCredential result = await auth.createUserWithEmailAndPassword(
+      final UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      final userReference = db.collection('users').doc(auth.currentUser!.uid);
+
+      final userReference = _db.collection('users').doc(userCredential.user!.uid);
       await userReference.set({
         'name': name,
         'surname': surname,
         'dateOfBirth': dateOfBirth,
       });
+
+      return 'Created a new account';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         return 'The password provided is too weak.';
@@ -36,7 +37,6 @@ class AuthService {
     } catch (e) {
       return e.toString();
     }
-    return 'Created a new account';
   }
 
   Future<String?> login({
@@ -44,15 +44,13 @@ class AuthService {
     required String password,
   }) async {
     try {
-      final UserCredential result = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+      final UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
-      User? currentUser = FirebaseAuth.instance.currentUser;
-      DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
-          .collection('users')
-          .doc(currentUser!.uid)
-          .get();
-      //return userSnapshot.data();
+      final userSnapshot = await _db.collection('users').doc(userCredential.user!.uid).get();
+      
       return 'Success';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

@@ -1,39 +1,37 @@
-// ignore_for_file: avoid_init_to_null
-
+import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class UserClass {
   final String uid;
+  final FirebaseFirestore db = FirebaseFirestore.instance;
+  final User? currentUser = FirebaseAuth.instance.currentUser;
 
   UserClass({required this.uid});
 
-  final db = FirebaseFirestore.instance;
-  User? currentUser = FirebaseAuth.instance.currentUser;
-
   Future<DocumentSnapshot> loadUserData() async {
-    DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(currentUser!.uid)
-        .get();
-
+    final userSnapshot =
+        await db.collection('users').doc(currentUser!.uid).get();
     return userSnapshot;
   }
 
   Future<void> updateUserData({
-    name = null,
-    surname = null,
-    dateOfBirth = null,
+    String? name,
+    String? surname,
+    String? dateOfBirth,
   }) async {
     final docReference = db.collection('users').doc(currentUser!.uid);
-    docReference.set({
-      'name': name!,
-      'surname': surname!,
-      'dateOfBirth': dateOfBirth!,
-    }, SetOptions(merge: true)).then((_) {
-      print('Updated');
-    }).catchError((e) {
-      print('Failed to update');
-    });
+    final data = {
+      if (name != null) 'name': name,
+      if (surname != null) 'surname': surname,
+      if (dateOfBirth != null) 'dateOfBirth': dateOfBirth,
+    };
+
+    try {
+      await docReference.set(data, SetOptions(merge: true));
+      log('Updated');
+    } catch (e) {
+      log('Failed to update: $e');
+    }
   }
 }
